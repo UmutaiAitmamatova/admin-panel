@@ -6,19 +6,19 @@ const MainBlock = ({ name, surName, age, group, classs }) => {
         <div class="contentBlock">
             <div class="contentImg"></div>
             <div class="contentSurname">
-                <span>surname: </span> {surName}
+                <span className="contentSpan">surname: </span> {surName}
             </div>
             <div class="contentName">
-                <span>name: </span>{name}
+                <span className="contentSpan">name: </span>{name}
             </div>
             <div class="contentAge">
-                <span>age: </span>{age}
+                <span className="contentSpan">age: </span>{age}
             </div>
             <div class="contentGrouspan">
-                <span>group: </span>{group}
+                <span className="contentSpan">group: </span>{group}
             </div>
             <div class="contentClass">
-                <span>class: </span>{classs}
+                <span className="contentSpan">class: </span>{classs}
             </div>
         </div>
     );

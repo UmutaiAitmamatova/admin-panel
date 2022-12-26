@@ -12,11 +12,11 @@ const Main = () => {
 
                     <div class="contentItems">
                         <MainBlock 
-                        name='Umutai'
-                        surName='Aitmamatova'
-                        age='19'
-                        group='A'
-                        classs='11'
+                        name='  Umutai'
+                        surName='  Aitmamatova'
+                        age='  19'
+                        group='  A'
+                        classs='  11'
                         />
                     </div>
                 </div>

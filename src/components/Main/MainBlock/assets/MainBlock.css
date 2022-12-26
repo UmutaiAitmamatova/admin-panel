@@ -2,9 +2,9 @@
     margin: 10px;
     width: 250px;
     height: 350px;
-    background-color: rgba(76, 108, 194, 0.15);
+    background-color: rgba(131, 0, 204, 0.2);
     border-radius: 20px;
-    box-shadow: 5px 2px 2px #3885d1;
+    box-shadow: 5px 2px 2px #8300cc;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -12,10 +12,19 @@
     padding: 10px 35px;
 }
 .contentBlock:hover{
-    box-shadow: 10px 5px 5px #3885d1;
+    box-shadow: 10px 5px 5px #8300cc;
 }
 .contentImg{
     width: 180px;
     height: 150px;
-    background-color: rgba(45, 136, 221, .8);
+    background-color: #7900b9;
+}
+.contentSpan{
+    background-color: rgba(131, 0, 204, 0.3);
+    color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+    padding: 0 3px;
+    margin-right: 10px;
 }

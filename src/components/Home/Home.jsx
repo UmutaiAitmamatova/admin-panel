@@ -7,8 +7,8 @@ import './assets/Home.css'
 const Home = () => {
     return (
         <div className="Home">
-            <Main/>
-            <AdminPanel title='All students'/>
+            {/* <Main/> */}
+            {/* <AdminPanel title='All students'/> */}
         </div>
     );
 };

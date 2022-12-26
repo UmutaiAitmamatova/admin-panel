@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.loginPage {
+    /* background: radial-gradient(circle, #3885d1 -10%, #ffffff 82%);
+    min-height: 100vh; */
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(56,133,209,1) 100%);
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginPageLogo {
+    margin-bottom: 25px;
+}
+
+.LoginPageInner {
+    width: 400px;
+    height: 350px;
+    background-color: rgba(76, 108, 194, 0.15);
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px #3885d1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.innerTitle {
+    color: #7a03bb;
+    font-weight: 500;
+    font-size: 22px;
+    text-align: center;
+}
+
+.innerInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.innerInput input {
+    width: 80%;
+    height: 50px;
+    border: 1px solid #8300cc;
+    background-color: rgba(57, 133, 208, 0.15);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 0 10px;
+    outline: none;
+}
+.innerInput input:hover{
+    box-shadow: 5px 3px 3px #7a03bb;
+}
+
+.innerInput input::-webkit-input-placeholder {
+    color: #7a03bb;
+    font-size: 16px;
+}
+
+.innerBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+}
+
+.innerBtn button {
+    width: 100px;
+    height: 35px;
+    background-color: rgba(131, 0, 204);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.innerBtn button:hover{
+    box-shadow: 8px 5px 5px #3885d1;
+}
+
+.innerSubTitile {
+    color: #7a03bb;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+}
+.LoginPageButton{
+    margin-top: 25px;
+    width: 320px;
+    height: 35px;
+    background-color: #8300cc;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+.LoginPageButton:hover{
+    box-shadow: 5px 3px 3px #3885d1;
+}
+@media screen and (max-width: 420px){
+    .LoginPageInner{
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        height: 320px;
+    }
+    .LoginPageButton{
+        width: 290px;
+    }
+}
