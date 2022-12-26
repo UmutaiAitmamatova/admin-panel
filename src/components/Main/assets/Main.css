@@ -1,0 +1,16 @@
+.ontentInner{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.contentItems{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 790px){
+    .contentItems{
+        display: flex;
+        justify-content: space-around;
+    }
+}

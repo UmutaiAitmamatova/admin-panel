@@ -1,0 +1,44 @@
+.adminBlock{
+    margin: 10px;
+    width: 250px;
+    height: 380px;
+    background-color: rgba(76, 108, 194, 0.15);
+    border-radius: 20px;
+    box-shadow: 5px 2px 2px #3885d1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px 35px;
+}
+.adminBlock:hover{
+    box-shadow: 10px 5px 5px #3885d1;
+}
+.adminImg{
+    width: 180px;
+    height: 150px;
+    background-color: rgba(45, 136, 221, .8);
+}
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.btn button{
+    border: none;
+    background-color: rgba(131, 0, 204, 0.5);
+    padding: 6px 25px;
+    color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn button:hover{
+    box-shadow: 5px 3px 3px #3885d1;
+}
+@media screen and (max-width: 790px){
+    .adminItems{
+        display: flex;
+        justify-content: space-around;
+    }
+}

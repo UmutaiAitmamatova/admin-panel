@@ -1,0 +1,21 @@
+.contentBlock{
+    margin: 10px;
+    width: 250px;
+    height: 350px;
+    background-color: rgba(76, 108, 194, 0.15);
+    border-radius: 20px;
+    box-shadow: 5px 2px 2px #3885d1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px 35px;
+}
+.contentBlock:hover{
+    box-shadow: 10px 5px 5px #3885d1;
+}
+.contentImg{
+    width: 180px;
+    height: 150px;
+    background-color: rgba(45, 136, 221, .8);
+}

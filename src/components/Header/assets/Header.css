@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background: rgba(56,133,209,1);
+    height: 60px;
+    border-bottom: 1px solid rgb(14, 68, 121);;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.headerInner{
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.headerLogo{
+    color: #8300cc;
+    font-size: 24px;
+    font-weight: 400;
+}
+.headerAdmin{
+    width: 70px;
+    height: 35px;
+    background-color: #8300cc;
+    border: none;
+    opacity: .7;
+    color: rgb(239, 238, 238);
+    border-radius: 5px;
+}

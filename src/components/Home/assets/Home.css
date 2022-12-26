@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.Home{
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(56,133,209,1) 100%);
+    padding-top: 30px;
+    height: 90vh;
+}
