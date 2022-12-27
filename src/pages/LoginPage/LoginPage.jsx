@@ -17,6 +17,12 @@ const LoginPage = () => {
             })
     }
 
+    // const loginWithGoogle = async () => {
+    //     const provider = new firebase.auth.GoogleAuthProvider();
+    //     const { user } = await auth.signInWithPopup(provider);
+    //     console.log(user);
+    //   };
+
     return (
         <div className="loginPage">
             <div className="loginPageLogo">

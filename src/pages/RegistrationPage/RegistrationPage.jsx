@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
 import { auth } from '../../firebase'
 import './assets/RegistrationPage.css'
+import Swal from 'sweetalert2'
 
 const RegistrationPage = () => {
     const [email, setEmail] = React.useState('');
@@ -16,6 +17,13 @@ const RegistrationPage = () => {
                 console.log(error);
             })
     }
+    const btn = () => {
+        Swal.fire(
+            'Congratulations',
+            'you have successfully registered',
+            'success'
+        )
+    }
     return (
         <div className="checkInPage">
             <div className="checkInPageLogo">
@@ -29,7 +37,7 @@ const RegistrationPage = () => {
                         <input type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="checkInBtn">
-                        <button type='submit'>Зарегистрироваться</button>
+                        <button onClick={btn} type='submit'>Зарегистрироваться</button>
                     </div>
                 </form>
             </div>
