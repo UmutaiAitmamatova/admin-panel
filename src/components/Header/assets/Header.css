@@ -23,6 +23,20 @@ header{
     font-size: 24px;
     font-weight: 400;
 }
+.headerBtns{
+    display: flex;
+}
+.headerName{
+    width: 35px;
+    height: 35px;
+    background-color: #8300cc;
+    opacity: .7;
+    text-align: center;
+    color: rgb(239, 238, 238);
+    padding-top: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
 .headerAdmin{
     width: 70px;
     height: 35px;
@@ -31,4 +45,8 @@ header{
     opacity: .7;
     color: rgb(239, 238, 238);
     border-radius: 5px;
+    margin-right: 10px;
+}
+@media screen and (max-width: 420px){
+
 }

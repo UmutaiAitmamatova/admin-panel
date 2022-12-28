@@ -3,6 +3,7 @@ import React from 'react';
 import { auth } from '../../firebase'
 import './assets/RegistrationPage.css'
 import Swal from 'sweetalert2'
+import { Link, useNavigate } from 'react-router-dom';
 
 const RegistrationPage = () => {
     const [email, setEmail] = React.useState('');
@@ -17,12 +18,14 @@ const RegistrationPage = () => {
                 console.log(error);
             })
     }
+    const navigate = useNavigate();
     const btn = () => {
         Swal.fire(
             'Congratulations',
             'you have successfully registered',
             'success'
         )
+        navigate('/')
     }
     return (
         <div className="checkInPage">
@@ -37,7 +40,7 @@ const RegistrationPage = () => {
                         <input type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="checkInBtn">
-                        <button onClick={btn} type='submit'>Зарегистрироваться</button>
+                            <button onClick={btn} type='submit'>Зарегистрироваться</button>
                     </div>
                 </form>
             </div>

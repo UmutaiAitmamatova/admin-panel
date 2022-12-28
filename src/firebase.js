@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import React from "react";
+import {getFirestore} from 'firebase/firestore';
+
+import React, { createContext } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,3 +24,33 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
+
+export const authContext = createContext(null)
+
+const db = getFirestore(app)
+
+const AuthContextProvider = ({children}) => {
+
+  return(
+    <authContext.Provider 
+    value={
+      {
+        auth, db, 
+      }
+    }>
+      {children}
+    </authContext.Provider>
+  )
+
+}
+
+export default AuthContextProvider
+
+export const getCookie = (name) => {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+
+
