@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth';
 import React from 'react';
 import { auth } from '../../firebase'
 import "./assets/LoginPage.css";
@@ -17,11 +17,13 @@ const LoginPage = () => {
             })
     }
 
-    // const loginWithGoogle = async () => {
-    //     const provider = new firebase.auth.GoogleAuthProvider();
-    //     const { user } = await auth.signInWithPopup(provider);
-    //     console.log(user);
-    //   };
+    const auth = getAuth();
+
+    const loginWithGoogle = async () => {
+        const provider =  new GoogleAuthProvider();
+        const { user } = await signInWithPopup(auth, provider);
+        console.log(user);
+    };
 
     return (
         <div className="loginPage">
@@ -42,7 +44,7 @@ const LoginPage = () => {
 
                 <div className="innerSubTitile">Don't have an account yet?</div>
             </div>
-            <button className="LoginPageButton">Sign in with Google</button>
+            <button onClick={()=>loginWithGoogle()} className="LoginPageButton">Sign in with Google</button>
         </div>
     );
 };
