@@ -2,7 +2,7 @@ import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, getAut
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase'
-import "./assets/LoginPage.css";
+import "./LoginPage.css";
 
 const LoginPage = () => {
     const [email, setEmail] = React.useState('');
@@ -48,7 +48,7 @@ const LoginPage = () => {
                     </div>
                 </form>
 
-                <Link to='registration'>
+                <Link to='/registration'>
                 <div className="innerSubTitile">Create new account</div>
                 </Link>
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import './assets/StudentBlock.css'
+import './StudentBlock.css'
 
 const StudentBlock = ({name, surName, age, group, classs}) => {
     return (

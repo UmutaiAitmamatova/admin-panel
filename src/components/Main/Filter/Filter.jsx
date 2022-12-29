@@ -1,13 +1,13 @@
 import React from 'react';
-import './assets/Filter.css'
+import './Filter.css'
 
 const Filter = () => {
     return (
-        <div class="contentFilters">
-            <p class="contentP">filters:</p>
-            <div class="filters">group</div>
-            <div class="filters">age</div>
-            <div class="filters">class</div>
+        <div className="contentFilters">
+            <p className="contentP">filters:</p>
+            <div className="filters">group</div>
+            <div className="filters">age</div>
+            <div className="filters">class</div>
         </div>
     );
 }

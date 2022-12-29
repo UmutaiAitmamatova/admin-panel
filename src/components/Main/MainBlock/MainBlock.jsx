@@ -1,23 +1,23 @@
 import React from "react";
-import './assets/MainBlock.css'
+import './MainBlock.css'
 
 const MainBlock = ({ name, surName, age, group, classs }) => {
     return (
-        <div class="contentBlock">
-            <div class="contentImg"></div>
-            <div class="contentSurname">
+        <div className="contentBlock">
+            <div className="contentImg"></div>
+            <div className="contentSurname">
                 <span className="contentSpan">surname: </span> {surName}
             </div>
-            <div class="contentName">
+            <div className="contentName">
                 <span className="contentSpan">name: </span>{name}
             </div>
-            <div class="contentAge">
+            <div className="contentAge">
                 <span className="contentSpan">age: </span>{age}
             </div>
-            <div class="contentGrouspan">
+            <div className="contentGrouspan">
                 <span className="contentSpan">group: </span>{group}
             </div>
-            <div class="contentClass">
+            <div className="contentClass">
                 <span className="contentSpan">class: </span>{classs}
             </div>
         </div>

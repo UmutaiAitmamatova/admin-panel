@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { authContext } from '../../firebase';
-import './assets/Header.css'
+import './Header.css'
 
 const Header = () => {
     const { auth } = useContext(authContext);

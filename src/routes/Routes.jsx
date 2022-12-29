@@ -1,6 +1,6 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "../components/Home/Home";
+import { Routes, Route } from "react-router-dom";
+import Home from "../pages/Home/Home";
 import { authContext } from "../firebase";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";

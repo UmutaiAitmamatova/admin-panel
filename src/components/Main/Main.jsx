@@ -1,16 +1,16 @@
 import React from "react";
-import "./assets/Main.css";
+import "./Main.css";
 import Filter from "./Filter/Filter";
 import MainBlock from "./MainBlock/MainBlock";
 
 const Main = () => {
     return (
-        <div class="contentPage">
-            <div class="container">
-                <div class="contentInner">
+        <div className="contentPage">
+            <div className="container">
+                <div className="contentInner">
                     <Filter />
 
-                    <div class="contentItems">
+                    <div className="contentItems">
                         <MainBlock 
                         name='  Umutai'
                         surName='  Aitmamatova'

@@ -1,6 +1,6 @@
 import React from "react";
 import StudentBlock from "./AllStudents/StudentBlock";
-import './assets/AdminPanel.css'
+import './AdminPanel.css'
 
 const AdminPanel = ({ title }) => {
     return (
