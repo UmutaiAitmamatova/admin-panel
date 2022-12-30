@@ -1,9 +1,10 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
 import { auth } from '../../firebase'
-import './RegistrationPage.css'
 import Swal from 'sweetalert2'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import logo from "../../assets/image 2.png";
+import classes from './RegistrationPage.module.scss'        
 
 const RegistrationPage = () => {
     const [email, setEmail] = React.useState('');
@@ -28,18 +29,18 @@ const RegistrationPage = () => {
         navigate('/')
     }
     return (
-        <div className="checkInPage">
-            <div className="checkInPageLogo">
-                <img src="./img/image 2.png" alt="" />
+        <div className={classes.checkInPage}>
+            <div className={classes.logo}>
+                <img src={logo} alt="" />
             </div>
-            <div className="checkInPageInner">
-                <div className="checkInTitle">REGISTRATION</div>
+            <div className={classes.inner}>
+                <div className={classes.title}>REGISTRATION</div>
                 <form onSubmit={signUp}>
-                    <div className="checkInInput">
+                    <div className={classes.input}>
                         <input type="email" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
-                    <div className="checkInBtn">
+                    <div className={classes.btn}>
                             <button onClick={btn} type='submit'>Зарегистрироваться</button>
                     </div>
                 </form>

@@ -1,15 +1,13 @@
 import React from "react";
 import StudentBlock from "./AllStudents/StudentBlock";
-import './AdminPanel.css'
+import classes from './AdminPanel.module.scss'
 
 const AdminPanel = ({ title }) => {
     return (
-        <div className="adminPage">
-            <div className="container">
-                <div className="adminInner">
-                    <h2 className="adminTitle">{title}</h2>
+                <div className={classes.inner}>
+                    <h2 className={classes.title}>{title}</h2>
 
-                    <div className="adminItems">
+                    <div className={classes.items}>
                         <StudentBlock
                         name='Umutai'
                         surName='Aitmamatova'
@@ -19,8 +17,6 @@ const AdminPanel = ({ title }) => {
                         />
                     </div>
                 </div>
-            </div>
-        </div>
     );
 };
 

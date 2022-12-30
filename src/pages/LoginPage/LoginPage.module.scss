@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-.checkInPage {
+.loginPage {
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(56,133,209,1) 100%);
     height: 90vh;
 
@@ -14,11 +14,11 @@
     justify-content: center;
 }
 
-.checkInPageLogo {
+.logo {
     margin-bottom: 25px;
 }
 
-.checkInPageInner {
+.inner {
     width: 400px;
     height: 350px;
     background-color: rgba(76, 108, 194, 0.15);
@@ -29,20 +29,20 @@
     justify-content: space-around;
 }
 
-.checkInTitle {
+.title {
     color: #7a03bb;
     font-weight: 500;
     font-size: 22px;
     text-align: center;
 }
 
-.checkInInput {
+.input {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.checkInInput input {
+.input input {
     width: 80%;
     height: 50px;
     border: 1px solid #8300cc;
@@ -52,41 +52,63 @@
     padding: 0 10px;
     outline: none;
 }
-.checkInInput input::-webkit-input-placeholder {
-    color: #7a03bb;
-    font-size: 16px;
-}
-.checkInInput input:hover{
+.input input:hover{
     box-shadow: 5px 3px 3px #7a03bb;
 }
 
-.checkInBtn {
+.input input::-webkit-input-placeholder {
+    color: #7a03bb;
+    font-size: 16px;
+}
+
+.btn {
     display: flex;
     justify-content: flex-end;
     margin-right: 10%;
 }
 
-.checkInBtn button {
-    width: 200px;
+.btn button {
+    width: 100px;
     height: 35px;
     background-color: rgba(131, 0, 204);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.btn button:hover{
+    box-shadow: 8px 5px 5px #3885d1;
+}
+
+.subTitle {
+    color: #7a03bb;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+}
+.button{
+    margin-top: 25px;
+    width: 320px;
+    height: 35px;
+    background-color: #8300cc;
     color: rgba(255, 255, 255, 0.8);
     font-size: 16px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
 }
-.checkInBtn button:hover{
+.button:hover{
     box-shadow: 5px 3px 3px #3885d1;
 }
 @media screen and (max-width: 420px){
-    .checkInPageInner{
+    .inner{
         background-color: transparent;
         border: none;
         box-shadow: none;
         height: 320px;
     }
-    .checkInPageButton{
+    .button{
         width: 290px;
     }
 }

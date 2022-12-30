@@ -1,16 +1,14 @@
 import React from "react";
-import "./Main.css";
+import classes from "./Main.module.scss";
 import Filter from "./Filter/Filter";
 import MainBlock from "./MainBlock/MainBlock";
 
 const Main = () => {
     return (
-        <div className="contentPage">
-            <div className="container">
-                <div className="contentInner">
+                <div className={classes.inner}>
                     <Filter />
 
-                    <div className="contentItems">
+                    <div className={classes.items}>
                         <MainBlock 
                         name='  Umutai'
                         surName='  Aitmamatova'
@@ -20,8 +18,6 @@ const Main = () => {
                         />
                     </div>
                 </div>
-            </div>
-        </div>
     );
 };
 

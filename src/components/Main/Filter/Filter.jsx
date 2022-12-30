@@ -1,13 +1,13 @@
 import React from 'react';
-import './Filter.css'
+import classes from './Filter.module.scss'
 
 const Filter = () => {
     return (
-        <div className="contentFilters">
-            <p className="contentP">filters:</p>
-            <div className="filters">group</div>
-            <div className="filters">age</div>
-            <div className="filters">class</div>
+        <div className={classes.contentFilters}>
+            <p className={classes.p}>filters:</p>
+            <div className={classes.filters}>group</div>
+            <div className={classes.filters}>age</div>
+            <div className={classes.filters}>class</div>
         </div>
     );
 }

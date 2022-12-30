@@ -2,7 +2,9 @@ import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, getAut
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase'
-import "./LoginPage.css";
+import classes from "./LoginPage.module.scss";
+
+import logo from "../../assets/image 2.png";
 
 const LoginPage = () => {
     const [email, setEmail] = React.useState('');
@@ -32,27 +34,27 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="loginPage">
-            <div className="loginPageLogo">
-                <img src="./img/image 2.png" alt="" />
+        <div className={classes.loginPage}>
+            <div className={classes.logo}>
+                <img src={logo} alt="" />
             </div>
-            <div className="LoginPageInner">
-                <div className="innerTitle">AUTHORIZATION</div>
+            <div className={classes.inner}>
+                <div className={classes.title}>AUTHORIZATION</div>
                 <form onSubmit={signIn}>
-                    <div className="innerInput">
+                    <div className={classes.input}>
                         <input type="email" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
-                    <div className="innerBtn">
+                    <div className={classes.btn}>
                         <button type='submit'>Enter</button>
                     </div>
                 </form>
 
                 <Link to='/registration'>
-                <div className="innerSubTitile">Create new account</div>
+                <div className={classes.subTitle}>Create new account</div>
                 </Link>
             </div>
-            <button onClick={loginWithGoogle} className="LoginPageButton">Sign in with Google</button>
+            <button onClick={loginWithGoogle} className={classes.button}>Sign in with Google</button>
         </div>
     );
 };
