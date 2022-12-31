@@ -1,0 +1,33 @@
+.AdminPanel{
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(56,133,209,1) 100%);
+    padding-top: 30px;
+    height: 90vh;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.inner{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    margin-bottom: 20px;
+    width: 250px;
+    height: 45px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #8300cc;
+    border: none;
+    opacity: .7;
+    font-size: 18px;
+    transition: .2s ease-in-out;
+}
+.btn:hover{
+    width: 255px;
+    box-shadow: 5px 3px 3px #3885d1;
+    font-size: 19px;
+}

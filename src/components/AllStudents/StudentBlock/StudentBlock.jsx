@@ -1,24 +1,24 @@
 import React from "react";
 import './StudentBlock.css'
 
-const StudentBlock = ({name, surName, age, group, classs}) => {
+const StudentBlock = ({data}) => {
     return (
         <div className="adminBlock">
             <div className="adminImg"></div>
             <div className="adminSurname">
-                <span>surname: </span> {surName}
+                <span>surname: </span> {data.name}
             </div>
             <div className="adminName">
-                <span>name: </span>{name}
+                <span>name: </span>{data.surname}
             </div>
             <div className="adminAge">
-                <span>age: </span>{age}
+                <span>age: </span>{data.age}
             </div>
             <div className="adminGrouspan">
-                <span>group: </span>{group}
+                <span>group: </span>{data.group}
             </div>
             <div className="adminclass">
-                <span>class: </span>{classs}
+                <span>class: </span>{data.classs}
             </div>
 
             <div className="btn">

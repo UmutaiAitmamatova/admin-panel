@@ -16,6 +16,7 @@
     "sass": "^1.57.1",
     "scss": "^0.2.4",
     "sweetalert2": "^11.6.16",
+    "uid": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

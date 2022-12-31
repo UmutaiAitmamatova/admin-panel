@@ -1,14 +1,14 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+
 import { getAuth } from "firebase/auth";
 import {getFirestore} from 'firebase/firestore';
 
 import React, { createContext } from "react";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// import { ref, set, update, remove, child } from 'firebase/database'
+import { getDatabase, ref, set } from "firebase/database";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyCXHa_l9WZCeGAkcVoR-Cdevtnk6FXaKKI",
   authDomain: "auth-5cb0d.firebaseapp.com",
@@ -22,12 +22,27 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
 
 export const authContext = createContext(null)
 
 const db = getFirestore(app)
+
+// Initialize Realtime Database and get a reference to the service
+
+
+const writeUserData = (userId, name, email, imageUrl) => {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
+
+
 
 const AuthContextProvider = ({children}) => {
 
@@ -41,8 +56,8 @@ const AuthContextProvider = ({children}) => {
       {children}
     </authContext.Provider>
   )
-
 }
+
 
 export default AuthContextProvider
 

@@ -1,15 +1,24 @@
-.adminInner{
+.allStudents{
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(56,133,209,1) 100%);
+    padding-top: 30px;
+    height: 90vh;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.inner{
     width: 100%;
     margin: 0 auto;
     padding-top: 30px;
 }
-.adminTitle{
+.title{
     margin-bottom: 30px;
     padding-left: 5%;
     text-transform: uppercase;
     color: #8300cc;
 }
-.adminItems{
+.items{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
