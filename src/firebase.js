@@ -31,6 +31,17 @@ const firebaseConfig = {
 //   databaseURL: "https://auth-5cb0d-default-rtdb.firebaseio.com/"
 // };
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCXHa_l9WZCeGAkcVoR-Cdevtnk6FXaKKI",
+//   authDomain: "auth-5cb0d.firebaseapp.com",
+//   databaseURL: "https://auth-5cb0d-default-rtdb.firebaseio.com",
+//   projectId: "auth-5cb0d",
+//   storageBucket: "auth-5cb0d.appspot.com",
+//   messagingSenderId: "6869214884",
+//   appId: "1:6869214884:web:42cbc14e826b08cbd5a831",
+//   measurementId: "G-PKS69K7HQZ"
+// };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -50,20 +61,15 @@ export const authContext = createContext(null)
 export const writeUserData = (  name, surname, age ) => {
   // const userId = push(child(ref(db), 'students'));
 
-  const studentsRef = db.ref("students")
-  const newStudentsRef = studentsRef.push() 
-  console.log(name, surname);
-  const uuid = uid()
-  newStudentsRef.set(
-  JSON.stringify(
-    {
-      name,
-      surname,
-      age,
-      id: name,
-    }
-  )
-  ).then((data) => {console.log(data)})
+  const db = getDatabase();
+  const userID = push(child(ref(db),'students')).key 
+  let dataOfStudent = {
+    name, surname, age
+  }
+  dataOfStudent["userID"] = userID;
+
+  set(ref(db,'students/' + userID), dataOfStudent)
+  console.log(dataOfStudent);
 
   //или то что снизу
   // data.id = userId
@@ -84,12 +90,16 @@ export const deletes = (id) => {
 }
 
 // GET
-export const getUserData = () => {
-  const dbRef = ref(db, 'users/');
+export const getStudents = (setStudents) => {
+  let listOfStudents = []
+  const dbRef = ref(db, 'students')
   onValue(dbRef, (snapshot) => {
-    console.log(snapshot.val())
+    setStudents = Object.values(snapshot.val())
   })
+  return listOfStudents
 }
+
+
 
 
 
