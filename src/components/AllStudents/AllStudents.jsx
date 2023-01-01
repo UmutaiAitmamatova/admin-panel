@@ -6,14 +6,13 @@ import classes from './AllStudents.module.scss';
 
 const AllStudents = () => {
     const [listOfStudents, setListOfStudents] = React.useState();
-    const handleSetOfStudents = (students) => {
-        setListOfStudents([...students])
-        console.log(listOfStudents);
-    }
     React.useEffect(() => {
-        console.log(getStudents(handleSetOfStudents));
-    }, [handleSetOfStudents])
-
+        getStudents(setListOfStudents)
+    return () => null
+    }, [])
+    React.useEffect(() => {
+        console.log(listOfStudents);
+    },[listOfStudents])
     
     return (
         <div className={classes.allStudents}>
@@ -23,7 +22,7 @@ const AllStudents = () => {
 
                     <div className={classes.items}>
                         {/* <button onClick={() => getStudents()}>uu</button> */}
-                        {/* <StudentBlock/> */}
+                        {listOfStudents?.map(student => <StudentBlock key={student.id} student={student}/>)}
                     </div>
                 </div>
             </div>

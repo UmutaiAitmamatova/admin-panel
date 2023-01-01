@@ -5,42 +5,19 @@ import { getAuth } from "firebase/auth";
 import React, { createContext } from "react";
 // import { ref, set, update, remove, child } from 'firebase/database'
 import { child, getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
-import { uid } from "uid";
 
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCLubEB1J1SgkKorXnRCMD7COzPFDa0bkg",
-  authDomain: "admin-panel-test-23fbb.firebaseapp.com",
-  databaseURL: "https://admin-panel-test-23fbb-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "admin-panel-test-23fbb",
-  storageBucket: "admin-panel-test-23fbb.appspot.com",
-  messagingSenderId: "223005006928",
-  appId: "1:223005006928:web:fa910c8b4ebf3d1f3b4555"
+  apiKey: "AIzaSyCXHa_l9WZCeGAkcVoR-Cdevtnk6FXaKKI",
+  authDomain: "auth-5cb0d.firebaseapp.com",
+  databaseURL: "https://auth-5cb0d-default-rtdb.firebaseio.com",
+  projectId: "auth-5cb0d",
+  storageBucket: "auth-5cb0d.appspot.com",
+  messagingSenderId: "6869214884",
+  appId: "1:6869214884:web:42cbc14e826b08cbd5a831",
+  measurementId: "G-PKS69K7HQZ"
 };
-
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCXHa_l9WZCeGAkcVoR-Cdevtnk6FXaKKI",
-//   authDomain: "auth-5cb0d.firebaseapp.com",
-//   projectId: "auth-5cb0d",
-//   storageBucket: "auth-5cb0d.appspot.com",
-//   messagingSenderId: "6869214884",
-//   appId: "1:6869214884:web:42cbc14e826b08cbd5a831",
-//   measurementId: "G-PKS69K7HQZ",
-//   databaseURL: "https://auth-5cb0d-default-rtdb.firebaseio.com/"
-// };
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCXHa_l9WZCeGAkcVoR-Cdevtnk6FXaKKI",
-//   authDomain: "auth-5cb0d.firebaseapp.com",
-//   databaseURL: "https://auth-5cb0d-default-rtdb.firebaseio.com",
-//   projectId: "auth-5cb0d",
-//   storageBucket: "auth-5cb0d.appspot.com",
-//   messagingSenderId: "6869214884",
-//   appId: "1:6869214884:web:42cbc14e826b08cbd5a831",
-//   measurementId: "G-PKS69K7HQZ"
-// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -91,12 +68,11 @@ export const deletes = (id) => {
 
 // GET
 export const getStudents = (setStudents) => {
-  let listOfStudents = []
   const dbRef = ref(db, 'students')
-  onValue(dbRef, (snapshot) => {
-    setStudents = Object.values(snapshot.val())
+   onValue(dbRef, (snapshot) => {
+    setStudents(Object.values(snapshot.val())) 
   })
-  return listOfStudents
+  return
 }
 
 
