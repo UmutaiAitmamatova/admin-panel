@@ -1,11 +1,10 @@
 import { initializeApp } from "firebase/app";
 
 import { getAuth } from "firebase/auth";
-import {getFirestore} from 'firebase/firestore';
 
 import React, { createContext } from "react";
 // import { ref, set, update, remove, child } from 'firebase/database'
-import { getDatabase, ref, set } from "firebase/database";
+import { child, getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
 
 
 
@@ -25,21 +24,48 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
+export const db = getDatabase(app);
 
 export const authContext = createContext(null)
 
-const db = getFirestore(app)
 
 // Initialize Realtime Database and get a reference to the service
 
 
-const writeUserData = (userId, name, email, imageUrl) => {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    username: name,
-    email: email,
-    profile_picture : imageUrl
-  });
+//POST
+// export const writeUserData = (data) => {
+//   const userId = push(child(ref(db), 'students')).key;
+//   // set(ref(db, 'users/' + userId), {
+//   //   username: 'er',
+//   //   email: 'asd',
+//   //   profile_picture: 'asdsa',
+//   //   id: userId
+//   // })
+
+//   //или то что снизу
+//   data.id = userId
+//   set(ref(db, 'users/' + userId),data)
+// }
+
+
+// UPDATE
+const changeUserData = (id, data) => {
+  // у пользователя есть айди берешь его и передаешь сюда
+  //data это обьект и если допустим там будет name:'newNmae' то он изменит свойство name на newName
+  update(ref(db, 'users/' + id), data);
+}
+
+// DELETE
+export const deletes = (id) => {
+  remove(ref(db, `users/${id}`));
+}
+
+// GET
+export const getUserData = () => {
+  const dbRef = ref(db, 'users/');
+  onValue(dbRef, (snapshot) => {
+    console.log(snapshot.val())
+  })
 }
 
 

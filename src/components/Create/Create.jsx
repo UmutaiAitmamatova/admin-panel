@@ -1,28 +1,25 @@
 import React, {useState} from 'react';
-import UseCarts from '../../Hooks/useCarts';
-import UseLogin from '../../Hooks/useLogin';
 import CreateStudents from '../CreateStudent/CreateStudents';
 import classes from './Create.module.scss'
+import { db } from '../../firebase'
+
+import { child, getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
 
 const Create = () => {
-    // const { users } = UseLogin();
-    const { actions } = UseCarts()
-    console.log(actions);
-
-
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [age, setAge] = useState('');
-    const handleSubmit = e => {
-        e.preventDefault()
 
-        actions.post({
-            name,
-            surname,
-            age,
-            isCompleted: false,
-        })
+    const handleNameChange = (e) => {
+        setName(e.target.value)
     }
+    const handleSurNameChange = (e) => {
+        setName(e.target.value)
+    }
+    const handleAgeChange = (e) => {
+        setName(e.target.value)
+    }
+
     return (
         <div>
             <CreateStudents
@@ -32,7 +29,9 @@ const Create = () => {
                 setSurname={setSurname}
                 age={age}
                 setAge={setAge}
-                onSubmit={handleSubmit}
+                handleNameChange={handleNameChange}
+                handleSurNameChange={handleSurNameChange}
+                handleAgeChange={handleAgeChange}
             />
         </div>
     );
