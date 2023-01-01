@@ -11,9 +11,10 @@ import Create from "../components/Create/Create";
 
 const Router = () => { 
 
-    const {auth} = React.useContext(authContext);
-    const [user] = useAuthState(auth)
+    // const {auth} = React.useContext(authContext);
+    // const [user] = useAuthState(auth)
     
+    const user = true
 
     return user ? (
         <Routes>

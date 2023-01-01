@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import CreateStudents from '../CreateStudent/CreateStudents';
 import classes from './Create.module.scss'
-import { db } from '../../firebase'
+import { db } from '../../firebase';
+import { writeUserData } from '../../firebase';
 
 import { child, getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
 
@@ -14,24 +15,25 @@ const Create = () => {
         setName(e.target.value)
     }
     const handleSurNameChange = (e) => {
-        setName(e.target.value)
+        setSurname(e.target.value)
     }
     const handleAgeChange = (e) => {
-        setName(e.target.value)
+        setAge(e.target.value)
     }
 
     return (
         <div>
             <CreateStudents
                 name={name}
-                setName={setName}
+                // setName={setName}
                 surname={surname}
-                setSurname={setSurname}
+                // setSurname={setSurname}
                 age={age}
-                setAge={setAge}
+                // setAge={setAge}
                 handleNameChange={handleNameChange}
                 handleSurNameChange={handleSurNameChange}
                 handleAgeChange={handleAgeChange}
+                // writeUserData={writeUserData}
             />
         </div>
     );
