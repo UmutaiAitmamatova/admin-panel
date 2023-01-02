@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 import CreateStudents from '../CreateStudent/CreateStudents';
 import classes from './Create.module.scss'
-import { db } from '../../firebase';
-import { writeUserData } from '../../firebase';
-
-import { child, getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
 
 const Create = () => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [age, setAge] = useState('');
+    const [img, setImg] = useState('');
 
     const handleNameChange = (e) => {
         setName(e.target.value)
@@ -20,20 +17,21 @@ const Create = () => {
     const handleAgeChange = (e) => {
         setAge(e.target.value)
     }
+    const handleImageURLChange = (e) => {
+        setImg(e.target.value)
+    }
 
     return (
         <div>
             <CreateStudents
+                imageURL={img}
                 name={name}
-                // setName={setName}
                 surname={surname}
-                // setSurname={setSurname}
                 age={age}
-                // setAge={setAge}
+                handleImgChange={handleImageURLChange}
                 handleNameChange={handleNameChange}
                 handleSurNameChange={handleSurNameChange}
                 handleAgeChange={handleAgeChange}
-                // writeUserData={writeUserData}
             />
         </div>
     );

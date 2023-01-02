@@ -4,12 +4,14 @@ import './StudentBlock.css'
 const StudentBlock = ({student}) => {
     return (
         <div className="adminBlock">
-            <div className="adminImg"></div>
+            <div>
+                <img height={150} width={180} src={student.imageURL} alt="imageURL" />
+            </div>
             <div className="adminSurname">
-                <span>surname: </span> {student.name}
+                <span>name: </span> {student.name}
             </div>
             <div className="adminName">
-                <span>name: </span>{student.surname}
+                <span>surname: </span>{student.surname}
             </div>
             <div className="adminAge">
                 <span>age: </span>{student.age}
