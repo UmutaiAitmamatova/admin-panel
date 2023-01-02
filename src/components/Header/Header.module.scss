@@ -5,7 +5,7 @@
 }
 .header{
     background: rgba(56,133,209,1);
-    height: 60px;
+    height: 65px;
     border-bottom: 1px solid rgb(14, 68, 121);;
 }
 .container{
@@ -27,17 +27,16 @@
     display: flex;
 }
 .name{
-    width: 35px;
     height: 35px;
-    background-color: #8300cc;
+    background-color: rgba(131, 0, 204, .7);
     opacity: .7;
     text-align: center;
     color: rgb(239, 238, 238);
-    padding-top: 5px;
+    padding: 5px 10px;
     border-radius: 5px;
     margin-right: 5px;
 }
-.admin{
+.btns button{
     width: 70px;
     height: 35px;
     background-color: #8300cc;
@@ -48,17 +47,10 @@
     margin-right: 10px;
     cursor: pointer;
 }
-.logout{
-    width: 70px;
-    height: 35px;
-    background-color: #8300cc;
-    border: none;
-    opacity: .7;
-    color: rgb(239, 238, 238);
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
+.btns button{
+    box-shadow: 5px 3px 3px #3885d1;
 }
+
 @media screen and (max-width: 420px){
 
 }

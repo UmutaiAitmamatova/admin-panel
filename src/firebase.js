@@ -29,8 +29,8 @@ export const writeUserData = ( imageURL, name, surname, age ) => {
   const db = getDatabase();
   const userID = push(child(ref(db),'students')).key 
   let dataOfStudent = {
-    imageURL: imageURL,
-    name, surname, age
+    imageURL,
+    name, surname, age, 
   }
   dataOfStudent["userID"] = userID;
 
@@ -40,15 +40,13 @@ export const writeUserData = ( imageURL, name, surname, age ) => {
 
 
 // UPDATE
-const changeUserData = (id, data) => {
-  // у пользователя есть айди берешь его и передаешь сюда
-  //data это обьект и если допустим там будет name:'newNmae' то он изменит свойство name на newName
-  update(ref(db, 'users/' + id), data);
+export const changeUserData = (id, data) => {
+  update(ref(db, 'students/' + id), data);
 }
 
 // DELETE
 export const deletes = (id) => {
-  remove(ref(db, `users/${id}`));
+  remove(ref(db, `students/${id}`));
 }
 
 // GET
@@ -77,11 +75,11 @@ const AuthContextProvider = ({children}) => {
 
 export default AuthContextProvider
 
-// export const getCookie = (name) => {
-//   var value = "; " + document.cookie;
-//   var parts = value.split("; " + name + "=");
-//   if (parts.length === 2) return parts.pop().split(";").shift();
-// }
+export const getUserName = (name) => {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length === 2) return parts.pop().split(";").shift();
+}
 
 
 

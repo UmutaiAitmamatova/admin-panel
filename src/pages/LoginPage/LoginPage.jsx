@@ -5,6 +5,7 @@ import { auth } from '../../firebase'
 import classes from "./LoginPage.module.scss";
 
 import logo from "../../assets/image 2.png";
+import Swal from 'sweetalert2';
 
 const LoginPage = () => {
     const [email, setEmail] = React.useState('');
@@ -22,15 +23,16 @@ const LoginPage = () => {
             })
         navigate('/')
     }
-
     const auth = getAuth();
-
     const loginWithGoogle = async () => {
         const provider =  new GoogleAuthProvider();
         const { user } = await signInWithPopup(auth, provider);
-        
         navigate('/')
-        console.log(user);
+        Swal.fire(
+            'Congratulations, you have successfully logged in with Google accounts!',
+            '',
+            'success'
+        )
     };
 
     return (

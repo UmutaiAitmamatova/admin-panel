@@ -1,0 +1,53 @@
+.createStudents{
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(56,133,209,1) 100%);
+    padding-top: 30px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner{
+    width: 380px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(131, 0, 204, 0.2);
+    border-radius: 20px;
+    box-shadow: 5px 2px 2px #8300cc;
+}
+.inner:hover{
+    box-shadow: 10px 5px 5px #8300cc;
+}
+.inner input{
+    padding: 0 10px;
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: rgba(131, 0, 204, 0.1);
+    color: #4d0276;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+.inner input:hover{
+    box-shadow: 5px 3px 3px #7a03bb;
+}
+.inner label{
+    color: #4d0276;
+}
+.btn{
+    height: 35px;
+    padding: 0 20px;
+    margin-top: 15px;
+    background-color: rgba(131, 0, 204);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover{
+    box-shadow: 8px 5px 5px #3885d1;
+}

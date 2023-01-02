@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import CreateStudents from '../CreateStudent/CreateStudents';
+import CreateStudents from './CreateStudent/CreateStudents';
 import classes from './Create.module.scss'
 
 const Create = () => {
@@ -28,7 +28,7 @@ const Create = () => {
                 name={name}
                 surname={surname}
                 age={age}
-                handleImgChange={handleImageURLChange}
+                handleImageURLChange={handleImageURLChange}
                 handleNameChange={handleNameChange}
                 handleSurNameChange={handleSurNameChange}
                 handleAgeChange={handleAgeChange}

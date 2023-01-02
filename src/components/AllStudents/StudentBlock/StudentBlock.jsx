@@ -1,31 +1,54 @@
 import React from "react";
-import './StudentBlock.css'
+import Swal from "sweetalert2";
+import  {deletes}  from "../../../firebase";
+import classes from './StudentBlock.module.scss'
 
 const StudentBlock = ({student}) => {
-    return (
-        <div className="adminBlock">
+    const deleteStudents = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You cannot return data!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#8300cc',
+            cancelButtonColor: 'd8d8d8',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deletes(student.userID)
+                Swal.fire(
+                    'Removed',
+                    '',
+                    'success'
+                )
+            }
+        })
+    }
+    
+        return (
+        <div className={classes.adminBlock}>
             <div>
                 <img height={150} width={180} src={student.imageURL} alt="imageURL" />
             </div>
-            <div className="adminSurname">
-                <span>name: </span> {student.name}
+            <div className={classes.surname}>
+                <span>Name: </span> {student.name}
             </div>
-            <div className="adminName">
-                <span>surname: </span>{student.surname}
+            <div className={classes.name}>
+                <span>Surname: </span>{student.surname}
             </div>
-            <div className="adminAge">
-                <span>age: </span>{student.age}
+            <div className={classes.age}>
+                <span>Age: </span>{student.age}
             </div>
-            <div className="adminGrouspan">
-                <span>group: </span>{student.group}
+            <div className={classes.group}>
+                <span>Group: </span>{student.group}
             </div>
-            <div className="adminclass">
-                <span>class: </span>{student.classs}
+            <div className={classes.class}>
+                <span>Class: </span>{student.classs}
             </div>
 
-            <div className="btn">
-                <button className="adminDelete">Delete</button>
-                <button className="adminEdit">Edit</button>
+            <div className={classes.btn}>
+                <button onClick={deleteStudents}>Delete</button>
+                <button>Edit</button>
             </div>
         </div>
     );
