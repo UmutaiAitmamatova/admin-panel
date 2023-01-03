@@ -3,30 +3,31 @@ import { getFilter } from "../../../firebase";
 import classes from "./Filter.module.scss";
 
 const Filter = ({ student, setListOfStudents }) => {
-    const [filterStudents, setFilterStudents] = React.useState({ name: '', age: null, classs: null, group: ''});
-    console.log(filterStudents);
+    
+    // const [filterStudents, setFilterStudents] = React.useState({ name: '', age: null, classs: null, group: ''});
+    // console.log(filterStudents);
 
-    const handleFilters = (e) => {
-        setFilterStudents({ ...filterStudents, [e.target.name]: e.target.value })
-    }
+    // const handleFilters = (e) => {
+    //     setFilterStudents({ ...filterStudents, [e.target.name]: e.target.value })
+    // }
 
-    const filterOfStudent = () => {
-        let filledFilters = getFilter(filterStudents);
-        let filledFilterStudents = student.filter(elem => {
-            return Object.entries(filledFilters).every(([key, value]) => {
-                if (key === 'name') {
-                    return !elem[key].indexOf(value)
-                } else {
-                    return elem[key] === value
-                }
-            })
-        })
-        setListOfStudents(filledFilterStudents)
-    }
+    // const filterOfStudent = () => {
+    //     let filledFilters = getFilter(filterStudents);
+    //     let filledFilterStudents = student.filter(elem => {
+    //         return Object.entries(filledFilters).every(([key, value]) => {
+    //             if (key === 'name') {
+    //                 return !elem[key].indexOf(value)
+    //             } else {
+    //                 return elem[key] === value
+    //             }
+    //         })
+    //     })
+    //     setListOfStudents(filledFilterStudents)
+    // }
 
-    React.useEffect(() => {
-        filterOfStudent()
-    }, [filterStudents])
+    // React.useEffect(() => {
+    //     filterOfStudent()
+    // }, [filterStudents])
 
     return (
         <div className={classes.contentFilters}>
@@ -36,12 +37,12 @@ const Filter = ({ student, setListOfStudents }) => {
                 <div className={classes.filters}>
                     <div>
                         <label htmlFor="firstname">Name</label>
-                        <input type="text" name="name" onChange={handleFilters}/>
+                        <input type="text" name="name" />
                     </div>
 
                     <div>
                         <label htmlFor="firstname">Age</label>
-                        <input type="number" name="firstname" onChange={handleFilters}/>
+                        <input type="number" name="firstname"/>
                     </div>
 
                     <div>
