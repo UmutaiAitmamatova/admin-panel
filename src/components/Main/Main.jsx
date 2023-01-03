@@ -4,11 +4,13 @@ import Filter from "./Filter/Filter";
 import MainBlock from "./MainBlock/MainBlock";
 import { getStudents } from "../../firebase";
 
-const Main = () => {
+const Main = ({isMain}) => {
+    const [student, setStudent] = React.useState([]);
     const [listOfStudents, setListOfStudents] = React.useState([]);
+ 
 
     React.useEffect(() => {
-        getStudents(setListOfStudents)
+        getStudents(setStudent, setListOfStudents)
     }, [])
     React.useEffect(() => {
         console.log(!listOfStudents);
@@ -17,13 +19,12 @@ const Main = () => {
     return (
         <div className={classes.container}>
             <div className={classes.inner}>
-                <Filter />
+                {student && isMain && <Filter student={student} setListOfStudents={setListOfStudents}/>}
 
                 <div className={classes.items}>
                     {listOfStudents.length > 0 ? listOfStudents.map((student, index) => {
-                            console.log(student, index);
                             return <MainBlock key={index} student={student} />
-                        }) : <p className={classes.title}>Студенты отсутствуют</p>}
+                        }) : <p className={classes.title}>Students missing</p>}
                 </div>
             </div>
         </div>

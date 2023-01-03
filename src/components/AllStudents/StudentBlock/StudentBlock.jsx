@@ -2,8 +2,10 @@ import React from "react";
 import Swal from "sweetalert2";
 import  {deletes}  from "../../../firebase";
 import classes from './StudentBlock.module.scss'
+import { changeUserData } from "../../../firebase";
 
 const StudentBlock = ({student}) => {
+    const [isModal, setIsModal] = React.useState(false);
     const deleteStudents = () => {
         Swal.fire({
             title: 'Are you sure?',
@@ -23,6 +25,10 @@ const StudentBlock = ({student}) => {
                 )
             }
         })
+    }
+
+    const updateStudents = ({ student }) => {
+        changeUserData(student.userId)
     }
     
         return (
@@ -48,7 +54,7 @@ const StudentBlock = ({student}) => {
 
             <div className={classes.btn}>
                 <button onClick={deleteStudents}>Delete</button>
-                <button>Edit</button>
+                <button onClick={updateStudents}>Edit</button>
             </div>
         </div>
     );

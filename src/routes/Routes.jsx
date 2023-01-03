@@ -8,6 +8,7 @@ import {useAuthState} from 'react-firebase-hooks/auth'
 import AdminPanel from "../pages/AdminPanel/AdminPanel";
 import AllStudents from "../components/AllStudents/AllStudents";
 import Create from "../components/Create/Create";
+import Header from "../components/Header/Header";
 
 const Router = () => { 
 
@@ -15,6 +16,8 @@ const Router = () => {
     const [user] = useAuthState(auth)
     
     return user ? (
+        <>
+        <Header/>
         <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path="/adminPanel" element={<AdminPanel />} exact />
@@ -22,6 +25,7 @@ const Router = () => {
             <Route path="/createStudents" element={<Create />} exact />
             <Route path="*" element={<>asd</>}/>
         </Routes>
+        </>
     ): (
     <Routes>
         <Route path="/login" element={<LoginPage />} exact />

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import CreateStudents from './CreateStudent/CreateStudents';
-import classes from './Create.module.scss'
+import ModalCreate from './CreateStudent/ModalCreate';
 
 const Create = () => {
     const [name, setName] = useState('');
@@ -23,7 +22,7 @@ const Create = () => {
 
     return (
         <div>
-            <CreateStudents
+            <ModalCreate
                 imageURL={img}
                 name={name}
                 surname={surname}

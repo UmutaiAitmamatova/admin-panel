@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from './CreateStudents.module.scss'
+import classes from './ModalCreate.module.scss'
 import { writeUserData } from '../../../firebase';
 import Swal from 'sweetalert2';
 
-const CreateStudents = ({ name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
+const ModalCreate = ({ name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
     return (
         <div className={classes.createStudents}>
             <div className={classes.inner}>
@@ -28,11 +28,11 @@ const CreateStudents = ({ name, group, classs, imageURL, surname, age, handleNam
                             '',
                             'success'
                         )
-                    }} type='submit'>Add new students</button>
+                    }} type='submit'>Submit</button>
                 </form>
             </div>
         </div>
     );
 }
 
-export default CreateStudents;
+export default ModalCreate;

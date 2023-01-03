@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { authContext, getUserName } from '../../firebase';
 import classes from './Header.module.scss'

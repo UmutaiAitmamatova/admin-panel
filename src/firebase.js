@@ -13,10 +13,9 @@ const firebaseConfig = {
   appId: "1:6869214884:web:42cbc14e826b08cbd5a831",
   measurementId: "G-PKS69K7HQZ"
 };
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and get a reference to the service
+
 export const auth = getAuth(app);
 export const db = getDatabase(app);
 
@@ -25,7 +24,6 @@ export const authContext = createContext(null)
 
 //POST
 export const writeUserData = ( imageURL, name, surname, age ) => {
-
   const db = getDatabase();
   const userID = push(child(ref(db),'students')).key 
   let dataOfStudent = {
@@ -37,7 +35,6 @@ export const writeUserData = ( imageURL, name, surname, age ) => {
   set(ref(db,'students/' + userID), dataOfStudent)
   console.log(dataOfStudent);
 }
-
 
 // UPDATE
 export const changeUserData = (id, data) => {
@@ -58,21 +55,14 @@ export const getStudents = (setStudents) => {
   return
 }
 
-
-
 const AuthContextProvider = ({children}) => {
   return(
     <authContext.Provider 
-    value={
-      {
-        auth, db, 
-      }
-    }>
+    value={{auth, db,}}>
       {children}
     </authContext.Provider>
   )
 }
-
 export default AuthContextProvider
 
 export const getUserName = (name) => {
@@ -81,5 +71,11 @@ export const getUserName = (name) => {
   if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
+export const getFilter = (obj) => {
+  Object.entries(obj).map(elem => {
+      if (!elem[1]) delete obj[elem[0]]
+  })
+  return obj
+}
 
 
