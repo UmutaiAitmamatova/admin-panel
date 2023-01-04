@@ -1,13 +1,39 @@
 import React from 'react';
 import classes from './ModalForm.module.scss'
-import { writeUserData } from '../../firebase';
+import { changeUserDate, writeUserData } from '../../firebase';
 import Swal from 'sweetalert2';
 
-const ModalForm = ({ active, setActive, name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
+const ModalForm = ({ userID, active, setActive, name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
+    const handleModaleChange = (event) => {
+        event.preventDefault()
+        if (userID) {
+            const data = {
+                name: name,
+                surname: surname,
+                age: age,
+                imageURL: imageURL
+            }
+            changeUserDate(data, userID)
+            Swal.fire(
+                'Successfully updated student!',
+                '',
+                'success'
+            )
+            setActive(false)
+        }
+        else {
+            writeUserData(imageURL, name, surname, age)
+            Swal.fire(
+                'Successfully added new student!',
+                '',
+                'success'
+            )
+        }
+    }
     return (
         <div className={classes.createStudents}>
             <div className={classes.inner} onClick={e => e.stopPropagation()}>
-            <button onClick={() => setActive(false)} className={classes.closeBtn}>X</button>
+                <button onClick={() => setActive(false)} className={classes.closeBtn}>X</button>
                 <form>
                     <label>Name</label> <br />
                     <input type="text" name="name" value={name} onChange={handleNameChange} /> <br />
@@ -21,15 +47,7 @@ const ModalForm = ({ active, setActive, name, group, classs, imageURL, surname, 
                     <input type="text" name="group" value={group} onChange={handleGroupChange} /> <br />
                     <label>Class</label> <br />
                     <input type="number" name="class" value={classs} onChange={handleClassChange} /> <br />
-                    <button className={classes.btn} onClick={(event) => {
-                        event.preventDefault()
-                        writeUserData(imageURL, name, surname, age)
-                        Swal.fire(
-                            'Successfully added new student!',
-                            '',
-                            'success'
-                        )
-                    }} type='submit'>Submit</button>
+                    <button className={classes.btn} onClick={handleModaleChange} type='submit'>Submit</button>
                 </form>
             </div>
         </div>

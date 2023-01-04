@@ -41,7 +41,6 @@ const AdminPanel = () => {
                         handleSurNameChange={handleSurNameChange}
                         handleAgeChange={handleAgeChange}/>
                     }
-                    {/* <Link to='/createStudents'><button className={classes.btn}>Creata students</button></Link> */}
                 </div>
             </div>
         </div>

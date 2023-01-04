@@ -36,9 +36,8 @@ export const writeUserData = ( imageURL, name, surname, age ) => {
 }
 
 // UPDATE
-export const changeUserDate = (user, studentID) => {
-  const userID = push(child(ref(db),'students')).key 
-  // update(push()))
+export const changeUserDate = (student, studentID) => {
+  update(ref(db, `students/${studentID}`), student);
 }
 
 // DELETE

@@ -1,29 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Swal from "sweetalert2";
-import  {deletes}  from "../../../firebase";
+import { deletes } from "../../../firebase";
 import classes from './StudentBlock.module.scss'
 import { changeUserDate } from "../../../firebase";
 import ModalForm from "../../ModalForm/ModalForm";
 
-const StudentBlock = ({student, key}) => {
+const StudentBlock = ({ student, key }) => {
     const [isModal, setIsModal] = React.useState(false);
     const [modalActive, setModalActive] = React.useState(false);
-    const [name, setName] = React.useState('');
-    const [surname, setSurname] = React.useState('');
-    const [age, setAge] = React.useState('');
-    const [img, setImg] = React.useState('');
+    const [studentObj, setStudentObj] = React.useState({
+        name: '',
+        surname: '',
+        age: '',
+        imageURL: ''
+    });
+
+    useEffect(() => {
+        setStudentObj(student)
+    }, [student])
+
 
     const handleNameChange = (e) => {
-        setName(e.target.value)
+        setStudentObj({ ...studentObj, name: e.target.value })
     }
     const handleSurNameChange = (e) => {
-        setSurname(e.target.value)
+        setStudentObj({ ...studentObj, surname: e.target.value })
     }
     const handleAgeChange = (e) => {
-        setAge(e.target.value)
+        setStudentObj({ ...studentObj, age: e.target.value })
     }
     const handleImageURLChange = (e) => {
-        setImg(e.target.value)
+        setStudentObj({ ...studentObj, imageURL: e.target.value })
     }
 
 
@@ -49,14 +56,10 @@ const StudentBlock = ({student, key}) => {
     }
 
     const updateStudents = () => {
-        console.log(student.userID);
         setIsModal(true)
         setModalActive(true)
-        changeUserDate(student.userID)
-
     }
-    
-        return (
+    return (
         <div className={classes.adminBlock}>
             <div>
                 <img height={150} width={180} src={student.imageURL} alt="imageURL" />
@@ -81,10 +84,21 @@ const StudentBlock = ({student, key}) => {
                 <button onClick={deleteStudents}>Delete</button>
                 <button onClick={updateStudents}>Edit</button>
                 {modalActive &&
-                        <ModalForm
+                    <ModalForm
+                        userID={studentObj.userID}
                         active={modalActive}
-                        setActive={setModalActive}/>
-                    }
+                        setActive={setModalActive}
+                        name={studentObj.name}
+                        imageURL={studentObj.imageURL}
+                        surname={studentObj.surname}
+                        age={studentObj.age}
+                        handleNameChange={handleNameChange}
+                        handleSurNameChange={handleSurNameChange}
+                        handleAgeChange={handleAgeChange}
+                        handleImageURLChange={handleImageURLChange}
+                        handleClassChange={handleAgeChange}
+                    />
+                }
             </div>
         </div>
     );
