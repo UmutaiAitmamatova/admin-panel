@@ -33,12 +33,12 @@ export const writeUserData = ( imageURL, name, surname, age ) => {
   dataOfStudent["userID"] = userID;
 
   set(ref(db,'students/' + userID), dataOfStudent)
-  console.log(dataOfStudent);
 }
 
 // UPDATE
-export const changeUserData = (id, data) => {
-  update(ref(db, 'students/' + id), data);
+export const changeUserDate = (user, studentID) => {
+  const userID = push(child(ref(db),'students')).key 
+  // update(push()))
 }
 
 // DELETE
@@ -71,11 +71,5 @@ export const getUserName = (name) => {
   if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
-export const getFilter = (obj) => {
-  Object.entries(obj).map(elem => {
-      if (!elem[1]) delete obj[elem[0]]
-  })
-  return obj
-}
 
 

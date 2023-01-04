@@ -1,12 +1,13 @@
 import React from 'react';
-import classes from './ModalCreate.module.scss'
-import { writeUserData } from '../../../firebase';
+import classes from './ModalForm.module.scss'
+import { writeUserData } from '../../firebase';
 import Swal from 'sweetalert2';
 
-const ModalCreate = ({ name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
+const ModalForm = ({ active, setActive, name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
     return (
         <div className={classes.createStudents}>
-            <div className={classes.inner}>
+            <div className={classes.inner} onClick={e => e.stopPropagation()}>
+            <button onClick={() => setActive(false)} className={classes.closeBtn}>X</button>
                 <form>
                     <label>Name</label> <br />
                     <input type="text" name="name" value={name} onChange={handleNameChange} /> <br />
@@ -35,4 +36,4 @@ const ModalCreate = ({ name, group, classs, imageURL, surname, age, handleNameCh
     );
 }
 
-export default ModalCreate;
+export default ModalForm;

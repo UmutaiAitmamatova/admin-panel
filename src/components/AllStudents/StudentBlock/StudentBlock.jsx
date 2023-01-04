@@ -2,10 +2,31 @@ import React from "react";
 import Swal from "sweetalert2";
 import  {deletes}  from "../../../firebase";
 import classes from './StudentBlock.module.scss'
-import { changeUserData } from "../../../firebase";
+import { changeUserDate } from "../../../firebase";
+import ModalForm from "../../ModalForm/ModalForm";
 
-const StudentBlock = ({student}) => {
+const StudentBlock = ({student, key}) => {
     const [isModal, setIsModal] = React.useState(false);
+    const [modalActive, setModalActive] = React.useState(false);
+    const [name, setName] = React.useState('');
+    const [surname, setSurname] = React.useState('');
+    const [age, setAge] = React.useState('');
+    const [img, setImg] = React.useState('');
+
+    const handleNameChange = (e) => {
+        setName(e.target.value)
+    }
+    const handleSurNameChange = (e) => {
+        setSurname(e.target.value)
+    }
+    const handleAgeChange = (e) => {
+        setAge(e.target.value)
+    }
+    const handleImageURLChange = (e) => {
+        setImg(e.target.value)
+    }
+
+
     const deleteStudents = () => {
         Swal.fire({
             title: 'Are you sure?',
@@ -27,8 +48,12 @@ const StudentBlock = ({student}) => {
         })
     }
 
-    const updateStudents = ({ student }) => {
-        changeUserData(student.userId)
+    const updateStudents = () => {
+        console.log(student.userID);
+        setIsModal(true)
+        setModalActive(true)
+        changeUserDate(student.userID)
+
     }
     
         return (
@@ -55,6 +80,11 @@ const StudentBlock = ({student}) => {
             <div className={classes.btn}>
                 <button onClick={deleteStudents}>Delete</button>
                 <button onClick={updateStudents}>Edit</button>
+                {modalActive &&
+                        <ModalForm
+                        active={modalActive}
+                        setActive={setModalActive}/>
+                    }
             </div>
         </div>
     );

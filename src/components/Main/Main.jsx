@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Main.module.scss";
 import Filter from "./Filter/Filter";
 import MainBlock from "./MainBlock/MainBlock";
 import { getStudents } from "../../firebase";
 
-const Main = ({isMain}) => {
+const Main = () => {
     const [listOfStudents, setListOfStudents] = React.useState([]);
-    console.log();
- 
+    const [search, setSearch] = useState({ name: '', age: null, classs: null, group: '' })
+
 
     React.useEffect(() => {
         getStudents(setListOfStudents)
@@ -16,15 +16,22 @@ const Main = ({isMain}) => {
         console.log(!listOfStudents);
     }, [listOfStudents])
 
+    React.useEffect(() => {
+        console.log(search, 'search');
+    }, [search])
     return (
         <div className={classes.container}>
             <div className={classes.inner}>
-            <Filter setListOfStudents={setListOfStudents}/>
-
+                <Filter student={listOfStudents} setListOfStudents={setListOfStudents} setSearch={setSearch} />
                 <div className={classes.items}>
-                    {listOfStudents.length > 0 ? listOfStudents.map((student, index) => {
-                            return <MainBlock key={index} student={student} />
-                        }) : <p className={classes.title}>Students missing</p>}
+                    {listOfStudents?.filter((item) => {
+                        return search?.name === ''
+                            ? item
+                            : item.name?.toLowerCase().includes(search?.name.toLowerCase());
+                    }).map((student, index) => {
+                        console.log(student, index);
+                        return <MainBlock key={index} student={student} />
+                    })}
                 </div>
             </div>
         </div>

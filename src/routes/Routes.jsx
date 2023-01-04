@@ -7,7 +7,6 @@ import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import {useAuthState} from 'react-firebase-hooks/auth'
 import AdminPanel from "../pages/AdminPanel/AdminPanel";
 import AllStudents from "../components/AllStudents/AllStudents";
-import Create from "../components/Create/Create";
 import Header from "../components/Header/Header";
 
 const Router = () => { 
@@ -22,7 +21,6 @@ const Router = () => {
             <Route path="/" element={<Home />} exact />
             <Route path="/adminPanel" element={<AdminPanel />} exact />
             <Route path="/allStudents" element={<AllStudents />} exact />
-            <Route path="/createStudents" element={<Create />} exact />
             <Route path="*" element={<>asd</>}/>
         </Routes>
         </>

@@ -13,7 +13,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
+
 .btn{
     margin-bottom: 20px;
     width: 250px;
@@ -25,6 +27,7 @@
     opacity: .7;
     font-size: 18px;
     transition: .2s ease-in-out;
+    position: relative;
 }
 .btn:hover{
     width: 255px;

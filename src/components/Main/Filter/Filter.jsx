@@ -1,33 +1,11 @@
 import React from "react";
-import { getFilter } from "../../../firebase";
 import classes from "./Filter.module.scss";
 
-const Filter = ({ student, setListOfStudents }) => {
-    
-    // const [filterStudents, setFilterStudents] = React.useState({ name: '', age: null, classs: null, group: ''});
-    // console.log(filterStudents);
+const Filter = ({ setSearch }) => {
 
-    // const handleFilters = (e) => {
-    //     setFilterStudents({ ...filterStudents, [e.target.name]: e.target.value })
-    // }
-
-    // const filterOfStudent = () => {
-    //     let filledFilters = getFilter(filterStudents);
-    //     let filledFilterStudents = student.filter(elem => {
-    //         return Object.entries(filledFilters).every(([key, value]) => {
-    //             if (key === 'name') {
-    //                 return !elem[key].indexOf(value)
-    //             } else {
-    //                 return elem[key] === value
-    //             }
-    //         })
-    //     })
-    //     setListOfStudents(filledFilterStudents)
-    // }
-
-    // React.useEffect(() => {
-    //     filterOfStudent()
-    // }, [filterStudents])
+    const handleFilters = (e) => {
+        setSearch((search) =>({...search,[e.target.name]: e.target.value}))
+    }
 
     return (
         <div className={classes.contentFilters}>
@@ -37,12 +15,12 @@ const Filter = ({ student, setListOfStudents }) => {
                 <div className={classes.filters}>
                     <div>
                         <label htmlFor="firstname">Name</label>
-                        <input type="text" name="name" />
+                        <input type="text" name="name" onChange={handleFilters}/>
                     </div>
 
                     <div>
                         <label htmlFor="firstname">Age</label>
-                        <input type="number" name="firstname"/>
+                        <input type="number" name="firstname" onChange={handleFilters}/>
                     </div>
 
                     <div>
