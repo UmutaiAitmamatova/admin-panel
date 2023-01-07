@@ -22,9 +22,9 @@ const AllStudents = () => {
 
                     <div className={classes.items}>
                         {listOfStudents.length > 0 ? listOfStudents.map((student, index) => {
-                            console.log(student, index);
+                            // console.log(student, index);
                             return <StudentBlock key={index} student={student} />
-                        }) : <p className={classes.title}>Студенты отсутствуют</p>}
+                        }) : <p className={classes.title}>Students are absent</p>}
                     </div>
                 </div>
             </div>

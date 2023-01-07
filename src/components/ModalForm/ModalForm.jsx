@@ -22,7 +22,7 @@ const ModalForm = ({ userID, active, setActive, name, group, classs, imageURL, s
             setActive(false)
         }
         else {
-            writeUserData(imageURL, name, surname, age)
+            writeUserData(imageURL, name, surname, age, group)
             Swal.fire(
                 'Successfully added new student!',
                 '',

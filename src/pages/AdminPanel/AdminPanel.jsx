@@ -5,22 +5,46 @@ import classes from "./AdminPanel.module.scss";
 
 const AdminPanel = () => {
     const [modalActive, setModalActive] = useState(false);
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [age, setAge] = useState('');
-    const [img, setImg] = useState('');
+
+    const [studentObj, setStudentObj] = React.useState({
+        name: '',
+        surname: '',
+        age: '',
+        imageURL: '',
+        group: '',
+    });
+    // const [name, setName] = useState('');
+    // const [surname, setSurname] = useState('');
+    // const [age, setAge] = useState('');
+    // const [img, setImg] = useState('');
+
+    // const handleNameChange = (e) => {
+    //     setName(e.target.value)
+    // }
+    // const handleSurNameChange = (e) => {
+    //     setSurname(e.target.value)
+    // }
+    // const handleAgeChange = (e) => {
+    //     setAge(e.target.value)
+    // }
+    // const handleImageURLChange = (e) => {
+    //     setImg(e.target.value)
+    // }
 
     const handleNameChange = (e) => {
-        setName(e.target.value)
+        setStudentObj({ ...studentObj, name: e.target.value })
     }
     const handleSurNameChange = (e) => {
-        setSurname(e.target.value)
+        setStudentObj({ ...studentObj, surname: e.target.value })
     }
     const handleAgeChange = (e) => {
-        setAge(e.target.value)
+        setStudentObj({ ...studentObj, age: e.target.value })
     }
     const handleImageURLChange = (e) => {
-        setImg(e.target.value)
+        setStudentObj({ ...studentObj, imageURL: e.target.value })
+    }
+    const handleGroupChange = (e) => {
+        setStudentObj({ ...studentObj, group: e.target.value })
     }
     return (
         <div className={classes.AdminPanel}>
@@ -32,14 +56,17 @@ const AdminPanel = () => {
                         <ModalForm
                         active={modalActive}
                         setActive={setModalActive}
-                        imageURL={img}
-                        name={name}
-                        surname={surname}
-                        age={age}
+                        imageURL={studentObj.imageURL}
+                        name={studentObj.name}
+                        surname={studentObj.surname}
+                        age={studentObj.age}
+                        group={studentObj.group}
                         handleImageURLChange={handleImageURLChange}
                         handleNameChange={handleNameChange}
                         handleSurNameChange={handleSurNameChange}
-                        handleAgeChange={handleAgeChange}/>
+                        handleAgeChange={handleAgeChange}
+                        handleGroupChange={handleGroupChange}
+                        />
                     }
                 </div>
             </div>

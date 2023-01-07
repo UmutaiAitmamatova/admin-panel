@@ -12,7 +12,8 @@ const StudentBlock = ({ student, key }) => {
         name: '',
         surname: '',
         age: '',
-        imageURL: ''
+        imageURL: '',
+        group: '',
     });
 
     useEffect(() => {
@@ -31,6 +32,9 @@ const StudentBlock = ({ student, key }) => {
     }
     const handleImageURLChange = (e) => {
         setStudentObj({ ...studentObj, imageURL: e.target.value })
+    }
+    const handleGroupChange = (e) => {
+        setStudentObj({ ...studentObj, group: e.target.value })
     }
 
 
@@ -92,11 +96,13 @@ const StudentBlock = ({ student, key }) => {
                         imageURL={studentObj.imageURL}
                         surname={studentObj.surname}
                         age={studentObj.age}
+                        group={studentObj.group}
                         handleNameChange={handleNameChange}
                         handleSurNameChange={handleSurNameChange}
                         handleAgeChange={handleAgeChange}
                         handleImageURLChange={handleImageURLChange}
                         handleClassChange={handleAgeChange}
+                        handleGroupChange={handleGroupChange}
                     />
                 }
             </div>

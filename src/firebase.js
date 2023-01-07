@@ -23,12 +23,15 @@ export const authContext = createContext(null)
 
 
 //POST
-export const writeUserData = ( imageURL, name, surname, age ) => {
+export const writeUserData = ( imageURL, name, surname, age, group ) => {
   const db = getDatabase();
   const userID = push(child(ref(db),'students')).key 
   let dataOfStudent = {
     imageURL,
-    name, surname, age, 
+    name, 
+    surname, 
+    age, 
+    group,
   }
   dataOfStudent["userID"] = userID;
 
