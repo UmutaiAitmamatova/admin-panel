@@ -18,16 +18,15 @@ const RegistrationPage = () => {
             }).catch((error) => {
                 console.log(error);
             })
+            Swal.fire(
+                'Congratulations',
+                'you have successfully registered',
+                'success'
+            )
+            navigate('/')
     }
     const navigate = useNavigate();
-    const btn = () => {
-        Swal.fire(
-            'Congratulations',
-            'you have successfully registered',
-            'success'
-        )
-        navigate('/')
-    }
+
     return (
         <div className={classes.checkInPage}>
             <div className={classes.logo}>
@@ -41,7 +40,7 @@ const RegistrationPage = () => {
                         <input type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className={classes.btn}>
-                            <button onClick={btn} type='submit'>Зарегистрироваться</button>
+                            <button type='submit'>Зарегистрироваться</button>
                     </div>
                 </form>
             </div>

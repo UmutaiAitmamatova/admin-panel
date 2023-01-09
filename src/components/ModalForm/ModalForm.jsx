@@ -2,8 +2,10 @@ import React from 'react';
 import classes from './ModalForm.module.scss'
 import { changeUserDate, writeUserData } from '../../firebase';
 import Swal from 'sweetalert2';
+import { logDOM } from '@testing-library/react';
 
 const ModalForm = ({ userID, active, setActive, name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
+
     const handleModaleChange = (event) => {
         event.preventDefault()
         if (userID) {
@@ -11,7 +13,8 @@ const ModalForm = ({ userID, active, setActive, name, group, classs, imageURL, s
                 name: name,
                 surname: surname,
                 age: age,
-                imageURL: imageURL
+                imageURL: imageURL,
+                group: group
             }
             changeUserDate(data, userID)
             Swal.fire(
@@ -22,7 +25,7 @@ const ModalForm = ({ userID, active, setActive, name, group, classs, imageURL, s
             setActive(false)
         }
         else {
-            writeUserData(imageURL, name, surname, age, group)
+            writeUserData(imageURL, name, surname, age, group, classs)
             Swal.fire(
                 'Successfully added new student!',
                 '',

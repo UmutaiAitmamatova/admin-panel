@@ -13,7 +13,7 @@ const Main = () => {
         getStudents(setListOfStudents)
     }, [])
     React.useEffect(() => {
-        // console.log(!listOfStudents);
+        console.log(!listOfStudents);
     }, [listOfStudents])
 
     React.useEffect(() => {
@@ -37,8 +37,8 @@ const Main = () => {
                         return search?.name === '' &&  search?.age === 0 && search.group === 'all'
                             ? item
                             : item.name?.toLowerCase().includes(search?.name.toLowerCase())
-                             &&  item.age?.includes(search?.age)
-                             ||  item.group?.includes(search?.group)
+                            &&  item.age?.includes(search?.age)
+                            ||  item.group?.includes(search?.group)
                     }).map((student, index) => {
                         return <MainBlock key={index} student={student} />
                     })  : <p className={classes.title}>Students are absent</p>}

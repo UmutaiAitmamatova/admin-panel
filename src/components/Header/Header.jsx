@@ -12,7 +12,6 @@ const Header = () => {
                 <div className={classes.inner}>
                     <Link to='/'><div className={classes.logo}>CRYXXEN</div></Link>
                     <div className={classes.btns}>
-                        <p className={classes.name}>{getUserName('userName')}</p>
                         <Link to='/adminPanel'><button>admin</button></Link>
                         <button onClick={() => {
                             Swal.fire({

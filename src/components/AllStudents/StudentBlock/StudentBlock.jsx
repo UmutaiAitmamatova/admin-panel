@@ -14,6 +14,7 @@ const StudentBlock = ({ student, key }) => {
         age: '',
         imageURL: '',
         group: '',
+        classs: '',
     });
 
     useEffect(() => {
@@ -97,6 +98,7 @@ const StudentBlock = ({ student, key }) => {
                         surname={studentObj.surname}
                         age={studentObj.age}
                         group={studentObj.group}
+                        classs={studentObj.classs}
                         handleNameChange={handleNameChange}
                         handleSurNameChange={handleSurNameChange}
                         handleAgeChange={handleAgeChange}
