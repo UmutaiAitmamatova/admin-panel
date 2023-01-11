@@ -3,16 +3,7 @@ import { getAuth } from "firebase/auth";
 import React, { createContext } from "react";
 import { child, getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCXHa_l9WZCeGAkcVoR-Cdevtnk6FXaKKI",
-//   authDomain: "auth-5cb0d.firebaseapp.com",
-//   databaseURL: "https://auth-5cb0d-default-rtdb.firebaseio.com",
-//   projectId: "auth-5cb0d",
-//   storageBucket: "auth-5cb0d.appspot.com",
-//   messagingSenderId: "6869214884",
-//   appId: "1:6869214884:web:42cbc14e826b08cbd5a831",
-//   measurementId: "G-PKS69K7HQZ"
-// };
+
 const firebaseConfig = {
   apiKey: "AIzaSyCXHa_l9WZCeGAkcVoR-Cdevtnk6FXaKKI",
   authDomain: "auth-5cb0d.firebaseapp.com",
@@ -41,7 +32,8 @@ export const writeUserData = (imageURL, name, surname, age, group ,classs ) => {
     name, 
     surname, 
     age, 
-    group
+    group,
+    classs
   }
   dataOfStudent["userID"] = userID;
 

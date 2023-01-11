@@ -12,6 +12,7 @@ const AdminPanel = () => {
         age: '',
         imageURL: '',
         group: '',
+        classs: ''
     });
     // const [name, setName] = useState('');
     // const [surname, setSurname] = useState('');
@@ -46,6 +47,9 @@ const AdminPanel = () => {
     const handleGroupChange = (e) => {
         setStudentObj({ ...studentObj, group: e.target.value })
     }
+    const handleClassChange = (e) => {
+        setStudentObj({ ...studentObj, classs: e.target.value })
+    }
     return (
         <div className={classes.AdminPanel}>
             <div className={classes.container}>
@@ -61,11 +65,13 @@ const AdminPanel = () => {
                         surname={studentObj.surname}
                         age={studentObj.age}
                         group={studentObj.group}
+                        classs={studentObj.classs}
                         handleImageURLChange={handleImageURLChange}
                         handleNameChange={handleNameChange}
                         handleSurNameChange={handleSurNameChange}
                         handleAgeChange={handleAgeChange}
                         handleGroupChange={handleGroupChange}
+                        handleClassChange={handleClassChange}
                         />
                     }
                 </div>

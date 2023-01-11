@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './ModalForm.module.scss'
 import { changeUserDate, writeUserData } from '../../firebase';
 import Swal from 'sweetalert2';
-import { logDOM } from '@testing-library/react';
 
 const ModalForm = ({ userID, active, setActive, name, group, classs, imageURL, surname, age, handleNameChange, handleSurNameChange, handleAgeChange, handleImageURLChange, handleGroupChange, handleClassChange }) => {
 
@@ -14,7 +13,8 @@ const ModalForm = ({ userID, active, setActive, name, group, classs, imageURL, s
                 surname: surname,
                 age: age,
                 imageURL: imageURL,
-                group: group
+                group: group,
+                classs: classs
             }
             changeUserDate(data, userID)
             Swal.fire(

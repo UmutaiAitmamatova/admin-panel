@@ -101,6 +101,10 @@
 .button:hover{
     box-shadow: 5px 3px 3px #3885d1;
 }
+.text_danger{
+    color: rgb(229, 64, 64);
+    padding-bottom: 10px;
+}
 @media screen and (max-width: 420px){
     .inner{
         background-color: transparent;

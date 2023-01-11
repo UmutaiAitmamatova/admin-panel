@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import classes from "./Filter.module.scss";
 
-const Filter = ({ setSearch,getSelectedRadioValue }) => {
+const Filter = ({ setSearch,getSelectedRadioValue,getSelectedClassValue }) => {
     const [radioValue, setRadioValue] = useState("all")
+    const [selectedClass, setSelectedclass] = useState("all");
+
     const handleFilters = (e) => {
         setSearch((search) =>({...search,[e.target.name]: e.target.value}))
     }
@@ -11,6 +13,11 @@ const Filter = ({ setSearch,getSelectedRadioValue }) => {
         setRadioValue(e)
         getSelectedRadioValue(e)
     }
+    const handleSelectClass = (el) => {
+        console.log(el.target.value)
+        setSelectedclass(el.target.value)
+        getSelectedClassValue(el.target.value)
+      };
     return (
         <div className={classes.contentFilters}>
             <div className={classes.container}>
@@ -37,6 +44,23 @@ const Filter = ({ setSearch,getSelectedRadioValue }) => {
                         <label htmlFor="D">D</label>
                         <input type="radio" checked={radioValue === "D"}  onClick={(e) => handleRadioButton(e.target.value)} name="D" value="D"/>
                         <button className={classes.btn} onClick={() => handleRadioButton("all")}>all</button>
+                    </div>
+
+                    <div className={classes.item}>
+                        <select name="class_student"  onChange={handleSelectClass}>
+                            <option onClick={() => handleSelectClass("all")} value="all">all</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                        </select>
                     </div>
 
                 </div>
