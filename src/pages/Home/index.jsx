@@ -1,7 +1,6 @@
 import React from "react";
 import Main from "../../components/Main/Main";
-import classes from './Home.module.scss'
-// import app from "../../firebase";
+import classes from './Home.module.scss';
 
 const Home = () => {
     return (

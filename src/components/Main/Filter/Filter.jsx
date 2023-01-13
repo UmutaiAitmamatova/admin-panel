@@ -6,7 +6,7 @@ const Filter = ({ setSearch,getSelectedRadioValue,getSelectedClassValue }) => {
     const [selectedClass, setSelectedclass] = useState("all");
 
     const handleFilters = (e) => {
-        setSearch((search) =>({...search,[e.target.name]: e.target.value}))
+        setSearch((search) =>({...search, [e.target.name]: e.target.value}))
     }
     const handleRadioButton = (e) => {
         console.log(e)
@@ -35,6 +35,8 @@ const Filter = ({ setSearch,getSelectedRadioValue,getSelectedClassValue }) => {
                     </div>
 
                     <div className={classes.item}>
+                        <p>group</p>
+                        <form>
                         <label htmlFor="A">A</label>
                         <input type="radio" checked={radioValue === "A"} id="A" onClick={(e) => handleRadioButton(e.target.value)} name="A" value="A" />
                         <label htmlFor="B">B</label>
@@ -44,9 +46,11 @@ const Filter = ({ setSearch,getSelectedRadioValue,getSelectedClassValue }) => {
                         <label htmlFor="D">D</label>
                         <input type="radio" checked={radioValue === "D"}  onClick={(e) => handleRadioButton(e.target.value)} name="D" value="D"/>
                         <button className={classes.btn} onClick={() => handleRadioButton("all")}>all</button>
+                        </form>
                     </div>
 
                     <div className={classes.item}>
+                        <p>class</p>
                         <select name="class_student"  onChange={handleSelectClass}>
                             <option onClick={() => handleSelectClass("all")} value="all">all</option>
                             <option value="1">1</option>

@@ -1,35 +1,68 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home/Home";
-import { authContext } from "../firebase";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
-import {useAuthState} from 'react-firebase-hooks/auth'
-import AdminPanel from "../pages/AdminPanel/AdminPanel";
-import AllStudents from "../components/AllStudents/AllStudents";
-import Header from "../components/Header/Header";
+// import Home from "../pages/Home/Home";
+import { authContext } from "../core/configs/firebase";
+// import LoginPage from "../pages/LoginPage/LoginPage";
+// import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
+import { useAuthState } from 'react-firebase-hooks/auth'
+// import AdminPanel from "../pages/AdminPanel/AdminPanel";
+// import AllStudents from "../pages/AllStudents/AllStudents";
+import Header from "../layouts/Header/Header";
+import NoPage from "../components/NoPage/NoPage";
 
-const Router = () => { 
+const Home = React.lazy(() => import("../pages/Home"));
+const AllStudents = React.lazy(() => import("../pages/AllStudents/AllStudents"));
+const AdminPanel = React.lazy(() => import("../pages/AdminPanel/AdminPanel"));
+const LoginPage = React.lazy(() => import("../pages/LoginPage/LoginPage"));
+const RegistrationPage = React.lazy(() => import("../pages/RegistrationPage/RegistrationPage"));
 
-    const {auth} = React.useContext(authContext);
+const Router = () => {
+
+    const { auth } = React.useContext(authContext);
     const [user] = useAuthState(auth)
-    
+
     return user ? (
         <>
-        <Header/>
-        <Routes>
-            <Route path="/" element={<Home />} exact />
-            <Route path="/adminPanel" element={<AdminPanel />} exact />
-            <Route path="/allStudents" element={<AllStudents />} exact />
-            <Route path="*" element={<>asd</>}/>
-        </Routes>
+            <Header />
+            <Routes>
+                <Route path="/" element={
+                    <React.Suspense fallback={<>Loading...</>}>
+                        <Home />
+                    </React.Suspense>
+                }
+                    exact
+                />
+                <Route path="/adminPanel" element={
+                    <React.Suspense fallback={<>Loading...</>}>
+                        <AdminPanel />
+                    </React.Suspense>
+
+                } exact />
+                <Route path="/allStudents" element={
+                    <React.Suspense fallback={<>Loading...</>}>
+                        <AllStudents />
+                    </React.Suspense>
+
+                } exact />
+                <Route path="*" element={<NoPage/>} />
+            </Routes>
         </>
-    ): (
-    <Routes>
-        <Route path="/login" element={<LoginPage />} exact />
-        <Route path="/registration" element={<RegistrationPage />} exact />
-        <Route path="*" element={<LoginPage />}/>
-    </Routes>
+    ) : (
+        <Routes>
+            <Route path="/login" element={
+                <React.Suspense fallback={<>Loading...</>}>
+                    <LoginPage />
+                </React.Suspense>
+
+            } exact />
+            <Route path="/registration" element={
+                <React.Suspense fallback={<>Loading...</>}>
+                    <RegistrationPage />
+                </React.Suspense>
+
+            } exact />
+            <Route path="*" element={<NoPage/>} />
+        </Routes>
     );
 };
 

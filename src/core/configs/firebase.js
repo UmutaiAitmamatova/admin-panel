@@ -24,7 +24,7 @@ export const authContext = createContext(null)
 
 
 //POST
-export const writeUserData = (imageURL, name, surname, age, group ,classs ) => {
+export const createStudent = (imageURL, name, surname, age, group ,classs ) => {
   const db = getDatabase();
   const userID = push(child(ref(db),'students')).key 
   let dataOfStudent = {
@@ -41,19 +41,19 @@ export const writeUserData = (imageURL, name, surname, age, group ,classs ) => {
 }
 
 // UPDATE
-export const changeUserDate = (student, studentID) => {
+export const updateStudent = (student, studentID) => {
   update(ref(db, `students/${studentID}`), student);
 }
 
 // DELETE
-export const deletes = (id) => {
+export const deleteStudent = (id) => {
   remove(ref(db, `students/${id}`));
 }
 
 // GET
 export const getStudents = (setStudents) => {
   const dbRef = ref(db, 'students')
-   onValue(dbRef, (snapshot) => {
+    onValue(dbRef, (snapshot) => {
     setStudents(Object.values(snapshot.val())) 
   })
   return

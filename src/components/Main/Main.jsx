@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import classes from "./Main.module.scss";
 import Filter from "./Filter/Filter";
 import MainBlock from "./MainBlock/MainBlock";
-import { getStudents } from "../../firebase";
-import ModalForm from "../ModalForm/ModalForm";
+import { getStudents } from "../../core/configs/firebase";
+import ModalForm from "../Modals/ModalForm/ModalForm";
 
 const Main = () => {
     const [listOfStudents, setListOfStudents] = React.useState([]);
@@ -17,36 +17,26 @@ const Main = () => {
         group: '',
         classs: ''
     });
-    const handleNameChange = (e) => {
-        setStudentObj({ ...studentObj, name: e.target.value })
-    }
-    const handleSurNameChange = (e) => {
-        setStudentObj({ ...studentObj, surname: e.target.value })
-    }
-    const handleAgeChange = (e) => {
-        setStudentObj({ ...studentObj, age: e.target.value })
-    }
-    const handleImageURLChange = (e) => {
-        setStudentObj({ ...studentObj, imageURL: e.target.value })
-    }
-    const handleGroupChange = (e) => {
-        setStudentObj({ ...studentObj, group: e.target.value })
-    }
-    const handleClassChange = (e) => {
-        setStudentObj({ ...studentObj, classs: e.target.value })
-    }
 
+    const handleChangeStudObj = (key, value) => {
+        setStudentObj(old => ({
+            ...old,
+            [key]: value
+        }))
+    };
 
     React.useEffect(() => {
         getStudents(setListOfStudents)
-    }, [])
+    }, []);
+
     React.useEffect(() => {
         console.log(!listOfStudents);
-    }, [listOfStudents])
+    }, [listOfStudents]);
 
     React.useEffect(() => {
         console.log(search, 'search');
-    }, [search])
+    }, [search]);
+
     const getSelectedRadioValue = (value) => {
         console.log('value in parent', value)
         setSearch(search => {
@@ -54,24 +44,35 @@ const Main = () => {
                 ...search, group: value
             }
         })
-    }
+    };
+
     const getSelectedClassValue = (value) => {
         setSearch(search => {
             return {
                 ...search, classs: value
             }
         })
-    }
+    };
+
+    // TODO 
+    // Изменить везде Input //! done
+    // Удалить ненужные функции  //! done
+    // Добавить LAzy Loading для всех страниц //! done
+    // Создать config для всех компонентов и перенеси туда конфигурации компонента //! done
+    // Filter refactoring
+    // Попробуй создать компонент Button 
+
+
     return (
         <div className={classes.container}>
             <div className={classes.inner}>
                 <Filter student={listOfStudents} setListOfStudents={setListOfStudents} getSelectedRadioValue={getSelectedRadioValue} getSelectedClassValue={getSelectedClassValue} setSearch={setSearch} />
                 <div className={classes.items}>
                     {listOfStudents?.filter((item) => {
-                        console.log('item', item)
                         return search?.name === '' && search?.age === 0 && search?.group === 'all' && search?.classs === 'all'
                             ? item
-                            : item.name?.toLowerCase().includes(search?.name.toLowerCase())
+                            :
+                            item.name?.toLowerCase().includes(search?.name.toLowerCase())
                             && item.age?.includes(search?.age)
                             || item.group?.includes(search?.group)
                             || item.classs?.includes(search?.classs)
@@ -81,28 +82,24 @@ const Main = () => {
                     }
                 </div>
                 {listOfStudents.length === 0 &&
-                        <>
-                            <p className={classes.title}>Students are absent</p>
-                            <button className={classes.btn} onClick={() => setModalActive(true)}>Creata students</button>
-                            {modalActive &&
-                                <ModalForm
-                                    active={modalActive}
-                                    setActive={setModalActive}
-                                    imageURL={studentObj.imageURL}
-                                    name={studentObj.name}
-                                    surname={studentObj.surname}
-                                    age={studentObj.age}
-                                    group={studentObj.group}
-                                    classs={studentObj.classs}
-                                    handleImageURLChange={handleImageURLChange}
-                                    handleNameChange={handleNameChange}
-                                    handleSurNameChange={handleSurNameChange}
-                                    handleAgeChange={handleAgeChange}
-                                    handleGroupChange={handleGroupChange}
-                                    handleClassChange={handleClassChange}
-                                />}
-                        </>
-                    }
+                    <>
+                        <p className={classes.title}>Students are absent</p>
+                        <button className={classes.btn} onClick={() => setModalActive(true)}>Creata students</button>
+                        {modalActive &&
+                            <ModalForm
+                                active={modalActive}
+                                setActive={setModalActive}
+                                imageURL={studentObj.imageURL}
+                                name={studentObj.name}
+                                surname={studentObj.surname}
+                                age={studentObj.age}
+                                group={studentObj.group}
+                                classs={studentObj.classs}
+                                handleChangeStudObj={handleChangeStudObj}
+                                studentObj={studentObj}
+                            />}
+                    </>
+                }
 
             </div>
         </div>

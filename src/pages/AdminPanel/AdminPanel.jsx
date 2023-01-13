@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import ModalForm from "../../components/ModalForm/ModalForm";
+import ModalForm from "../../components/Modals/ModalForm/ModalForm";
 import classes from "./AdminPanel.module.scss";
 
 const AdminPanel = () => {
@@ -13,24 +13,13 @@ const AdminPanel = () => {
         group: '',
         classs: ''
     });
-    const handleNameChange = (e) => {
-        setStudentObj({ ...studentObj, name: e.target.value })
-    }
-    const handleSurNameChange = (e) => {
-        setStudentObj({ ...studentObj, surname: e.target.value })
-    }
-    const handleAgeChange = (e) => {
-        setStudentObj({ ...studentObj, age: e.target.value })
-    }
-    const handleImageURLChange = (e) => {
-        setStudentObj({ ...studentObj, imageURL: e.target.value })
-    }
-    const handleGroupChange = (e) => {
-        setStudentObj({ ...studentObj, group: e.target.value })
-    }
-    const handleClassChange = (e) => {
-        setStudentObj({ ...studentObj, classs: e.target.value })
-    }
+
+    const handleChangeStudObj = (key, value) => {
+        setStudentObj(old => ({
+            ...old,
+            [key]: value
+        }))
+    };
     return (
         <div className={classes.AdminPanel}>
             <div className={classes.container}>
@@ -39,20 +28,16 @@ const AdminPanel = () => {
                     <button className={classes.btn} onClick={() => setModalActive(true)}>Creata students</button>
                     {modalActive &&
                         <ModalForm
-                        active={modalActive}
-                        setActive={setModalActive}
-                        imageURL={studentObj.imageURL}
-                        name={studentObj.name}
-                        surname={studentObj.surname}
-                        age={studentObj.age}
-                        group={studentObj.group}
-                        classs={studentObj.classs}
-                        handleImageURLChange={handleImageURLChange}
-                        handleNameChange={handleNameChange}
-                        handleSurNameChange={handleSurNameChange}
-                        handleAgeChange={handleAgeChange}
-                        handleGroupChange={handleGroupChange}
-                        handleClassChange={handleClassChange}
+                            active={modalActive}
+                            setActive={setModalActive}
+                            imageURL={studentObj.imageURL}
+                            name={studentObj.name}
+                            surname={studentObj.surname}
+                            age={studentObj.age}
+                            group={studentObj.group}
+                            classs={studentObj.classs}
+                            handleChangeStudObj={handleChangeStudObj}
+                            studentObj={studentObj}
                         />
                     }
                 </div>

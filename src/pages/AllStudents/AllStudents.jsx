@@ -1,6 +1,6 @@
 import React from "react";
-import StudentBlock from "../../components/AllStudents/StudentBlock/StudentBlock";
-import { getStudents } from "../../firebase";
+import StudentBlock from "../../components/StudentBlock/StudentBlock";
+import { getStudents } from "../../core/configs/firebase";
 
 import classes from './AllStudents.module.scss';
 
@@ -8,11 +8,12 @@ const AllStudents = () => {
     const [listOfStudents, setListOfStudents] = React.useState([]);
 
     React.useEffect(() => {
-        getStudents(setListOfStudents)
-    }, [])
+        getStudents(setListOfStudents);
+    }, []);
+
     React.useEffect(() => {
         console.log(!listOfStudents);
-    }, [listOfStudents])
+    }, [listOfStudents]);
 
     return (
         <div className={classes.allStudents}>

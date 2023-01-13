@@ -2,9 +2,10 @@ import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, getAut
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import classes from "./LoginPage.module.scss";
-import logo from "../../assets/image 2.png";
+import logo from "../../assets/img/image 2.png";
 import Swal from 'sweetalert2';
 import { useForm } from "react-hook-form";
+import { LoginPageConfigs } from './configs';
 
 const LoginPage = () => {
     const [email, setEmail] = React.useState('');
@@ -15,22 +16,7 @@ const LoginPage = () => {
     });
 
     const handleError = (errors) => {console.log(errors);};
-    const registerOptions = {
-        email: { 
-            required: "Email is required",
-            pattern: {
-                value: /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/,
-                message: 'Please enter a valid email address'
-            }
-        },
-        password: {
-            required: "Password is required",
-            minLength: {
-                value: 8,
-                message: "password is not correct"
-            }
-        }
-    };
+    const {registerOptions} = LoginPageConfigs()
 
     const signIn = (e) => {
         signInWithEmailAndPassword(auth, email, password)

@@ -1,11 +1,12 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
-import { auth } from '../../firebase'
+import { auth } from '../../core/configs/firebase';
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
-import logo from "../../assets/image 2.png";
+import logo from "../../assets/img/image 2.png";
 import classes from './RegistrationPage.module.scss';
 import { useForm } from "react-hook-form";
+import { RegistrationPageConfig } from './configs';
 
 const RegistrationPage = () => {
     const [email, setEmail] = React.useState('');
@@ -15,22 +16,7 @@ const RegistrationPage = () => {
     });
 
     const handleError = (errors) => { console.log(errors);};
-    const registerOptions = {
-        email: { 
-            required: "Email is required",
-            pattern: {
-                value: /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/,
-                message: '"Please enter a valid email address" (you entered the data in the wrong format)'
-            }
-        },
-        password: {
-            required: "Password is required",
-            minLength: {
-                value: 8,
-                message: "Password must have at least 8 characters"
-            }
-        }
-    };
+    const { registerOptions } = RegistrationPageConfig()
 
     const signUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
