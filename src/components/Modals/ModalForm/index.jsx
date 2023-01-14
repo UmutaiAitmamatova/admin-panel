@@ -106,9 +106,9 @@ const ModalForm = ({
                     <div>
                         <Input
                             label={"Students image"}
-                            name={"img"}
+                            name={"imageURL"}
                             type={"text"}
-                            onChange={(e) => onChangeInputs("img", e.target.value)}
+                            onChange={(e) => onChangeInputs("imageURL", e.target.value)}
                             value={studentObj?.imageURL || ""}
                             errors={errors}
                             register={register}
@@ -132,9 +132,9 @@ const ModalForm = ({
                     <div>
                         <Input
                             label={"class 1 / 11"}
-                            name={"class"}
+                            name={"classs"}
                             type={"number"}
-                            onChange={(e) => onChangeInputs("class", e.target.value)}
+                            onChange={(e) => onChangeInputs("classs", e.target.value)}
                             value={studentObj?.classs || ""}
                             errors={errors}
                             register={register}
