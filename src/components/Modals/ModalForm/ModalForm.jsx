@@ -10,11 +10,11 @@ const ModalForm = ({
     userID,
     setActive,
     name,
-    group,
-    classs,
     imageURL,
     surname,
     age,
+    group,
+    classs,
     handleChangeStudObj,
     studentObj,
 }) => {
@@ -37,9 +37,8 @@ const ModalForm = ({
                 group: group,
                 classs: classs
             }
-
-            updateStudent(...data, userID)
             console.log(...data, 'data');
+            // updateStudent(...data, userID)
             Swal.fire(
                 'Successfully updated student!',
                 '',
@@ -110,7 +109,7 @@ const ModalForm = ({
                             name={"img"}
                             type={"text"}
                             onChange={(e) => onChangeInputs("img", e.target.value)}
-                            value={studentObj?.img || ""}
+                            value={studentObj?.imageURL || ""}
                             errors={errors}
                             register={register}
                             options={registerOptions}
@@ -132,11 +131,11 @@ const ModalForm = ({
 
                     <div>
                         <Input
-                            label={"Group A / B / C / D"}
+                            label={"class 1 / 11"}
                             name={"class"}
                             type={"number"}
                             onChange={(e) => onChangeInputs("class", e.target.value)}
-                            value={studentObj?.class || ""}
+                            value={studentObj?.classs || ""}
                             errors={errors}
                             register={register}
                             options={registerOptions}
