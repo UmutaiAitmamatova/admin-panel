@@ -10,13 +10,13 @@ export default function Input({
     options,
     name,
     type,
-    placeholder,
+    handleUbdate
 }) {
- 
+
   const renderLabel = () => {
     return(
         <>
-         <label>{label}</label> <br />
+          <label>{label}</label> <br />
         </>
     )
   };
@@ -33,7 +33,6 @@ export default function Input({
     return(
         <>
             <input
-                placeholder={placeholder}
                 type={type}
                 name={name}
                 {...register(name, options[name])}

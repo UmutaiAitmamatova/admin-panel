@@ -18,6 +18,14 @@ const Main = () => {
         classs: ''
     });
 
+    // const handleImageURLChange = (e) => {
+    //     setStudentObj({ ...studentObj, imageURL: e.target.value })
+    // }
+
+    const handleUbdate = (e) => {
+        setStudentObj(...studentObj.e.target.value)
+    }
+
     const handleChangeStudObj = (key, value) => {
         setStudentObj(old => ({
             ...old,
@@ -66,7 +74,13 @@ const Main = () => {
     return (
         <div className={classes.container}>
             <div className={classes.inner}>
-                <Filter student={listOfStudents} setListOfStudents={setListOfStudents} getSelectedRadioValue={getSelectedRadioValue} getSelectedClassValue={getSelectedClassValue} setSearch={setSearch} />
+                <Filter
+                    student={listOfStudents}
+                    setListOfStudents={setListOfStudents}
+                    getSelectedRadioValue={getSelectedRadioValue}
+                    getSelectedClassValue={getSelectedClassValue}
+                    setSearch={setSearch} 
+                    />
                 <div className={classes.items}>
                     {listOfStudents?.filter((item) => {
                         return search?.name === '' && search?.age === 0 && search?.group === 'all' && search?.classs === 'all'
@@ -97,6 +111,7 @@ const Main = () => {
                                 classs={studentObj.classs}
                                 handleChangeStudObj={handleChangeStudObj}
                                 studentObj={studentObj}
+                                handleUbdate={handleUbdate}
                             />}
                     </>
                 }

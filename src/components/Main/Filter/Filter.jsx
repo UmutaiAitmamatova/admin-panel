@@ -17,7 +17,7 @@ const Filter = ({ setSearch,getSelectedRadioValue,getSelectedClassValue }) => {
         console.log(el.target.value)
         setSelectedclass(el.target.value)
         getSelectedClassValue(el.target.value)
-      };
+    };
     return (
         <div className={classes.contentFilters}>
             <div className={classes.container}>
@@ -45,7 +45,7 @@ const Filter = ({ setSearch,getSelectedRadioValue,getSelectedClassValue }) => {
                         <input type="radio" checked={radioValue === "C"} onClick={(e) => handleRadioButton(e.target.value)} name="C" value="C" />
                         <label htmlFor="D">D</label>
                         <input type="radio" checked={radioValue === "D"}  onClick={(e) => handleRadioButton(e.target.value)} name="D" value="D"/>
-                        <button className={classes.btn} onClick={() => handleRadioButton("all")}>all</button>
+                        <button className={classes.btn} value="all" onClick={(e) => handleRadioButton(e.target.value)}>all</button>
                         </form>
                     </div>
 
@@ -53,17 +53,17 @@ const Filter = ({ setSearch,getSelectedRadioValue,getSelectedClassValue }) => {
                         <p>class</p>
                         <select name="class_student"  onChange={handleSelectClass}>
                             <option onClick={() => handleSelectClass("all")} value="all">all</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
+                            <option checked={selectedClass === "1"} value="1">1</option>
+                            <option checked={selectedClass === "2"} value="2">2</option>
+                            <option checked={selectedClass === "3"} value="3">3</option>
+                            <option checked={selectedClass === "4"} value="4">4</option>
+                            <option checked={selectedClass === "5"} value="5">5</option>
+                            <option checked={selectedClass === "6"} value="6">6</option>
+                            <option checked={selectedClass === "7"} value="7">7</option>
+                            <option checked={selectedClass === "8"} value="8">8</option>
+                            <option checked={selectedClass === "9"} value="9">9</option>
+                            <option checked={selectedClass === "10"} value="10">10</option>
+                            <option checked={selectedClass === "11"} value="11">11</option>
                         </select>
                     </div>
 

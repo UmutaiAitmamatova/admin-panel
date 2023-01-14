@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 import Input from "../../common/Input";
 import classes from './ModalForm.module.scss'
 
-
 const ModalForm = ({
     userID,
     setActive,
@@ -17,7 +16,8 @@ const ModalForm = ({
     surname,
     age,
     handleChangeStudObj,
-    studentObj
+    studentObj,
+    handleUbdate
 }) => {
     const {registerOptions} = ModalFormConfigs();
 
@@ -34,11 +34,13 @@ const ModalForm = ({
                 name: name,
                 surname: surname,
                 age: age,
-                imageURL: imageURL,
+                imageURL: imageURL, 
                 group: group,
                 classs: classs
             }
-            updateStudent(data, userID)
+
+            updateStudent(...data, userID)
+            console.log(...data, 'data');
             Swal.fire(
                 'Successfully updated student!',
                 '',
@@ -47,7 +49,7 @@ const ModalForm = ({
             setActive(false)
         }
         else {
-            createStudent(imageURL, name, surname, age, group, classs)
+            createStudent(imageURL, name, surname, age,group,classs)
             Swal.fire(
                 'Successfully added new student!',
                 '',
@@ -70,12 +72,12 @@ const ModalForm = ({
                             label={"Name"}
                             name={"name"}
                             type={"string"}
-                            onChange={(e) => onChangeInputs("name", e.target.value)}
-                            placeholder={"Ivan"}
+                            onChange={(e) => onChangeInputs(name, e.target.value)}
                             value={studentObj?.name || ""}
                             errors={errors}
                             register={register}
                             options={registerOptions}
+                            handleUbdate={handleUbdate}
                         />
                     </div>
                     <div>
@@ -84,7 +86,6 @@ const ModalForm = ({
                             name={"surname"}
                             type={"string"}
                             onChange={(e) => onChangeInputs("surname", e.target.value)}
-                            placeholder={"Ivanovich"}
                             value={studentObj?.surname || ""}
                             errors={errors}
                             register={register}
@@ -98,7 +99,6 @@ const ModalForm = ({
                             name={"age"}
                             type={"number"}
                             onChange={(e) => onChangeInputs("age", e.target.value)}
-                            placeholder={"21"}
                             value={studentObj?.age || ""}
                             errors={errors}
                             register={register}
@@ -112,7 +112,6 @@ const ModalForm = ({
                             name={"img"}
                             type={"text"}
                             onChange={(e) => onChangeInputs("img", e.target.value)}
-                            placeholder={"https://media.licdn.com/dms/image/C560BAQHMnA03XDdf3w/company-logo_200_200/0/1519855918965?e=2147483647&v=beta&t=J3kUMZwIphc90TFKH5oOO9Sa9K59fimgJf-s_okU3zs"}
                             value={studentObj?.img || ""}
                             errors={errors}
                             register={register}
@@ -126,7 +125,6 @@ const ModalForm = ({
                             name={"group"}
                             type={"text"}
                             onChange={(e) => onChangeInputs("group", e.target.value)}
-                            placeholder={"A / B / C / D"}
                             value={studentObj?.group || ""}
                             errors={errors}
                             register={register}
@@ -140,7 +138,6 @@ const ModalForm = ({
                             name={"class"}
                             type={"number"}
                             onChange={(e) => onChangeInputs("class", e.target.value)}
-                            placeholder={"1 / 11"}
                             value={studentObj?.class || ""}
                             errors={errors}
                             register={register}

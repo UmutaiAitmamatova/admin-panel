@@ -5,7 +5,6 @@ import classes from "./StudentBlock.module.scss";
 import ModalForm from "../Modals/ModalForm/ModalForm";
 
 const StudentBlock = ({ student, key }) => {
-  const [isModal, setIsModal] = React.useState(false);
   const [modalActive, setModalActive] = React.useState(false);
   const [studentObj, setStudentObj] = React.useState({
     name: "",
@@ -54,7 +53,6 @@ const StudentBlock = ({ student, key }) => {
   };
 
   const updateStudents = () => {
-    setIsModal(true);
     setModalActive(true);
   };
   return (
