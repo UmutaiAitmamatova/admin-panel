@@ -11,7 +11,6 @@ export default function Input({
     name,
     type,
 }) {
-
   const renderLabel = () => {
     return(
         <>
@@ -39,17 +38,14 @@ export default function Input({
                 onChange={onChange}
             />  
             <br />
-        </>
-                
+        </>               
     )
   };
-    
   return (
     <>
     {label && renderLabel()}
     {renderMainInput()}
     {errors && renderError()}
     </>
-  )
-}
- 
+  );
+};

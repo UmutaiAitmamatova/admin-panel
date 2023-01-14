@@ -37,8 +37,8 @@ const ModalForm = ({
                 group: group,
                 classs: classs
             }
-            console.log(...data, 'data');
-            // updateStudent(...data, userID)
+            // console.log(data, 'data');
+            updateStudent(data, userID)
             Swal.fire(
                 'Successfully updated student!',
                 '',

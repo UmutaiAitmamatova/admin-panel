@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Main.module.scss";
-import Filter from "./Filter/Filter";
-import MainBlock from "./MainBlock/MainBlock";
+import Filter from "./Filter";
+import MainBlock from "./MainBlock";
 import { getStudents } from "../../core/configs/firebase";
-import ModalForm from "../Modals/ModalForm/ModalForm";
+import ModalForm from "../Modals/ModalForm";
 
 const Main = () => {
     const [listOfStudents, setListOfStudents] = useState([]);
@@ -52,15 +52,6 @@ const Main = () => {
             }
         })
     };
-
-    // TODO 
-    // Изменить везде Input //! done
-    // Удалить ненужные функции  //! done
-    // Добавить LAzy Loading для всех страниц //! done
-    // Создать config для всех компонентов и перенеси туда конфигурации компонента //! done
-    // Filter refactoring
-    // Попробуй создать компонент Button 
-
 
     return (
         <div className={classes.container}>

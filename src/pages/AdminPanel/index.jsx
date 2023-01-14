@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import ModalForm from "../../components/Modals/ModalForm/ModalForm";
+import ModalForm from "../../components/Modals/ModalForm";
 import classes from "./AdminPanel.module.scss";
 
 const AdminPanel = () => {

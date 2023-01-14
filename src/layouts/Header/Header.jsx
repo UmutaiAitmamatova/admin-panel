@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Link, NavLink} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { authContext, getUserName } from '../../core/configs/firebase';
+import { authContext } from '../../core/configs/firebase';
 import classes from './Header.module.scss'
 
 const Header = () => {

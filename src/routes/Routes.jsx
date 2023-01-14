@@ -1,20 +1,15 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-// import Home from "../pages/Home/Home";
 import { authContext } from "../core/configs/firebase";
-// import LoginPage from "../pages/LoginPage/LoginPage";
-// import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import { useAuthState } from 'react-firebase-hooks/auth'
-// import AdminPanel from "../pages/AdminPanel/AdminPanel";
-// import AllStudents from "../pages/AllStudents/AllStudents";
 import Header from "../layouts/Header/Header";
-import NoPage from "../components/NoPage/NoPage";
+import NoPage from "../components/NoPage";
 
 const Home = React.lazy(() => import("../pages/Home"));
-const AllStudents = React.lazy(() => import("../pages/AllStudents/AllStudents"));
-const AdminPanel = React.lazy(() => import("../pages/AdminPanel/AdminPanel"));
-const LoginPage = React.lazy(() => import("../pages/LoginPage/LoginPage"));
-const RegistrationPage = React.lazy(() => import("../pages/RegistrationPage/RegistrationPage"));
+const AllStudents = React.lazy(() => import("../pages/AllStudents"));
+const AdminPanel = React.lazy(() => import("../pages/AdminPanel"));
+const LoginPage = React.lazy(() => import("../pages/LoginPage"));
+const RegistrationPage = React.lazy(() => import("../pages/RegistrationPage"));
 
 const Router = () => {
 
@@ -61,7 +56,7 @@ const Router = () => {
                 </React.Suspense>
 
             } exact />
-            <Route path="*" element={<NoPage/>} />
+            <Route path="*" element={<LoginPage />} />
         </Routes>
     );
 };

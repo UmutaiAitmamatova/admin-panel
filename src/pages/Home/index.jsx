@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "../../components/Main/Main";
+import Main from "../../components/Main";
 import classes from './Home.module.scss';
 
 const Home = () => {

@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import Swal from "sweetalert2";
 import { deleteStudent } from "../../core/configs/firebase";
 import classes from "./StudentBlock.module.scss";
-import ModalForm from "../Modals/ModalForm/ModalForm";
+import ModalForm from "../Modals/ModalForm";
 
-const StudentBlock = ({ student, key }) => {
+const StudentBlock = ({ student }) => {
   const [modalActive, setModalActive] = React.useState(false);
   const [studentObj, setStudentObj] = React.useState({
     name: "",
@@ -76,6 +76,7 @@ const StudentBlock = ({ student, key }) => {
         <button onClick={updateStudents}>Edit</button>
         {modalActive && (
           <ModalForm
+            userID={student.userID}
             active={modalActive}
             setActive={setModalActive}
             imageURL={studentObj.imageURL}

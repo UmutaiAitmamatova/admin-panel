@@ -1,5 +1,5 @@
 import React from "react";
-import StudentBlock from "../../components/StudentBlock/StudentBlock";
+import StudentBlock from "../../components/StudentBlock";
 import { getStudents } from "../../core/configs/firebase";
 
 import classes from './AllStudents.module.scss';
