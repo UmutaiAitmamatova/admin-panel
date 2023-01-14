@@ -17,7 +17,6 @@ const ModalForm = ({
     age,
     handleChangeStudObj,
     studentObj,
-    handleUbdate
 }) => {
     const {registerOptions} = ModalFormConfigs();
 
@@ -72,12 +71,11 @@ const ModalForm = ({
                             label={"Name"}
                             name={"name"}
                             type={"string"}
-                            onChange={(e) => onChangeInputs(name, e.target.value)}
+                            onChange={(e) => onChangeInputs('name', e.target.value)}
                             value={studentObj?.name || ""}
                             errors={errors}
                             register={register}
                             options={registerOptions}
-                            handleUbdate={handleUbdate}
                         />
                     </div>
                     <div>

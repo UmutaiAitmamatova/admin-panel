@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Main.module.scss";
 import Filter from "./Filter/Filter";
 import MainBlock from "./MainBlock/MainBlock";
@@ -6,10 +6,10 @@ import { getStudents } from "../../core/configs/firebase";
 import ModalForm from "../Modals/ModalForm/ModalForm";
 
 const Main = () => {
-    const [listOfStudents, setListOfStudents] = React.useState([]);
+    const [listOfStudents, setListOfStudents] = useState([]);
     const [search, setSearch] = useState({ name: '', age: 0, group: 'all', classs: 'all', });
     const [modalActive, setModalActive] = useState(false);
-    const [studentObj, setStudentObj] = React.useState({
+    const [studentObj, setStudentObj] = useState({
         name: '',
         surname: '',
         age: '',
@@ -17,15 +17,6 @@ const Main = () => {
         group: '',
         classs: ''
     });
-
-    // const handleImageURLChange = (e) => {
-    //     setStudentObj({ ...studentObj, imageURL: e.target.value })
-    // }
-
-    const handleUbdate = (e) => {
-        setStudentObj(...studentObj.e.target.value)
-    }
-
     const handleChangeStudObj = (key, value) => {
         setStudentObj(old => ({
             ...old,
@@ -33,15 +24,15 @@ const Main = () => {
         }))
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         getStudents(setListOfStudents)
     }, []);
 
-    React.useEffect(() => {
+    useEffect(() => {
         console.log(!listOfStudents);
     }, [listOfStudents]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         console.log(search, 'search');
     }, [search]);
 
@@ -111,7 +102,6 @@ const Main = () => {
                                 classs={studentObj.classs}
                                 handleChangeStudObj={handleChangeStudObj}
                                 studentObj={studentObj}
-                                handleUbdate={handleUbdate}
                             />}
                     </>
                 }

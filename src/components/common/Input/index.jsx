@@ -10,7 +10,6 @@ export default function Input({
     options,
     name,
     type,
-    handleUbdate
 }) {
 
   const renderLabel = () => {

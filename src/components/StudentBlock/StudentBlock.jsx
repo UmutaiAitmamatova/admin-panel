@@ -14,26 +14,17 @@ const StudentBlock = ({ student, key }) => {
     group: "",
     classs: "",
   });
+  const handleChangeStudObj = (key, value) => {
+    setStudentObj(old => ({
+      ...old,
+      [key]: value
+    }))
+  };
 
   useEffect(() => {
     setStudentObj(student);
   }, [student]);
 
-  const handleNameChange = (e) => {
-    setStudentObj({ ...studentObj, name: e.target.value });
-  };
-  const handleSurNameChange = (e) => {
-    setStudentObj({ ...studentObj, surname: e.target.value });
-  };
-  const handleAgeChange = (e) => {
-    setStudentObj({ ...studentObj, age: e.target.value });
-  };
-  const handleImageURLChange = (e) => {
-    setStudentObj({ ...studentObj, imageURL: e.target.value });
-  };
-  const handleGroupChange = (e) => {
-    setStudentObj({ ...studentObj, group: e.target.value });
-  };
 
   const deleteStudents = () => {
     Swal.fire({
@@ -85,21 +76,16 @@ const StudentBlock = ({ student, key }) => {
         <button onClick={updateStudents}>Edit</button>
         {modalActive && (
           <ModalForm
-            userID={studentObj.userID}
             active={modalActive}
             setActive={setModalActive}
-            name={studentObj.name}
             imageURL={studentObj.imageURL}
+            name={studentObj.name}
             surname={studentObj.surname}
             age={studentObj.age}
             group={studentObj.group}
             classs={studentObj.classs}
-            handleNameChange={handleNameChange}
-            handleSurNameChange={handleSurNameChange}
-            handleAgeChange={handleAgeChange}
-            handleImageURLChange={handleImageURLChange}
-            handleClassChange={handleAgeChange}
-            handleGroupChange={handleGroupChange}
+            handleChangeStudObj={handleChangeStudObj}
+            studentObj={studentObj}
           />
         )}
       </div>
