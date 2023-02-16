@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import AuthContextProvider from './core/configs/firebase';
 import Router from "./routes/Routes";
+import AuthContextProvider from './core/configs/firebase';
+
 function App() {
   return (
     <div className="App">

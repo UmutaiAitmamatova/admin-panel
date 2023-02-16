@@ -14,7 +14,7 @@ const RegistrationPage = React.lazy(() => import("../pages/RegistrationPage"));
 const Router = () => {
 
     const { auth } = React.useContext(authContext);
-    const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth);
 
     return user ? (
         <>
@@ -24,20 +24,16 @@ const Router = () => {
                     <React.Suspense fallback={<>Loading...</>}>
                         <Home />
                     </React.Suspense>
-                }
-                    exact
-                />
+                }exact/>
                 <Route path="/adminPanel" element={
                     <React.Suspense fallback={<>Loading...</>}>
                         <AdminPanel />
                     </React.Suspense>
-
                 } exact />
                 <Route path="/allStudents" element={
                     <React.Suspense fallback={<>Loading...</>}>
                         <AllStudents />
                     </React.Suspense>
-
                 } exact />
                 <Route path="*" element={<NoPage/>} />
             </Routes>
